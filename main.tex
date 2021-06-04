@@ -1,0 +1,84 @@
+\documentclass[3p]{elsarticle}
+
+\usepackage{lineno,hyperref}
+
+\journal{Journal of \LaTeX\ Templates}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+%\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+%\bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+\bibliographystyle{elsarticle-num}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Towards Field-Based Coordination Learning} %%TO improve
+
+
+%% Group authors per affiliation:
+\author{Gianluca Aguzzi}
+\address{\texttt{gianluca.aguzzi@unibo.it}}
+\begin{abstract}
+Humans, in the last century, have filled the earth with computational entities. 
+%
+We find things able to compute in smartphones, scooter and cars. % improve this period
+Nowadays, these devices aren't isolated; rather, they form a hoard of inter-communicating entities capable of achieving complex tasks.
+
+In literature, different techniques aim at taming this complexity In literature, different techniques aim at taming this complexity at the engineering level.
+%
+Among the many, two solutions that use a top-down approach in expressing global behaviour are TOTA~\cite{DBLP:journals/tosem/MameiZ09} and Aggregate Computing~\cite{DBLP:journals/computer/BealPV15}.
+%
+The latter is a novel approach in which developers can express the collective behaviour by 
+a functional manipulation of a distributed data structure called a computational field.
+%
+In bottom-up approaches instead, self-organization is something that emerges, tuning algorithm parameters.
+%
+Aggregate programming is backed by field calculus, a minimal set of instructions necessary to express whatever spatiotemporal computation using computational field manipulation~\cite{DBLP:conf/coordination/AudritoBDV18}. 
+%
+On top of that, different building blocks have been built, to facilitate the high-level library definition.
+%
+Furthermore, crafting a specific blocks category is possible to verify relevant properties such as self-stabilization \cite{DBLP:conf/coordination/ViroliD14} and eventual consistency~\cite{DBLP:conf/saso/BealVPD16}.
+%
+Practically though, building these basic blocks is not as easy as it sounds. Moreover, it is difficult to guarantee certain quality levels under different network conditions (e.g., different typology, high node mobility,...).
+%
+Outward of top-down declarative approaches, in the context of MAS (and in particular large scale MAS), other solutions leverage evolutionary computing and learning to design distributed programs. Using these techniques bring to near-optimum solution in specific tasks. 
+Unfortunately, though, the main problems of those solutions are the difficulty in scaling up application complexity and the "black-box" nature.
+%
+\end{abstract}
+\begin{keyword}
+Field Coordination \sep Aggregate Computing \sep Multi Agent Reinforcement Learning
+\end{keyword}
+
+\end{frontmatter}
+
+\bibliography{mybibfile}
+
+\end{document}
