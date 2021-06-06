@@ -13,3 +13,5 @@ latex.pdf
 main.pdf
 main.spl
 elsarticle.cls
+main.fls
+main.fdb_latexmk
