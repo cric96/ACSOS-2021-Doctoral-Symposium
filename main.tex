@@ -80,6 +80,13 @@ Unfortunately, though, the main problems of those solutions are the difficulty i
 As far as we know, these two worlds are disjointed even if they speak a similar language. So our first intuition was merging these approaches. 
 This has inevitably led us to ask ourselves these questions At what level of abstraction (middleware? Application API? Building blocks?) learning can be useful for Aggregate Computing? 
 In related works, exists a well-known approach that easly match with Aggregate Computing? There are some benefits?
+
+Starting from the first point, Aggregate Computing needs a platform in which programs will be executed. 
+Here, designers need to define aspects that the paradigm doesn't include, such as evaluation frequency, program displacement, and trust.
+These themes are tackled in part in different works \cite{DBLP:journals/scp/CasadeiAV18, DBLP:journals/fi/CasadeiPPVW20}, but learning -- both online and offline -- is usually not considered and here could be crucial, avoiding complex parameters tuning and improving the system robustness. 
+Regarding evaluation frequency, related work already applied RL. Indeed, following an ad-hoc crafted reward function, we might bring the system to reduce energy consumption even in our solution.
+
+
 \end{abstract}
 \begin{keyword}
 Field Coordination \sep Aggregate Computing \sep Multi Agent Reinforcement Learning
