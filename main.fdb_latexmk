@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex main"] 1623061468 "main.aux" "main.bbl" "main" 1623061602
+["bibtex main"] 1623063087 "main.aux" "main.bbl" "main" 1623063087
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/ieeetr.bst" 1292289607 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "main.aux" 1623061595 1428 6bf658a0fa0d1304b8f17b5fc949157b "pdflatex"
-  "mybibfile.bib" 1623060832 9420 8429ae084f3e020b1db955779e52f5e0 ""
+  "main.aux" 1623063087 1849 d7ace99f294122f0ab94ec861f17b3e4 "pdflatex"
+  "mybibfile.bib" 1623063085 12051 7d6e35172556458aa60ae4035f235255 ""
   (generated)
-  "main.blg"
   "main.bbl"
-["pdflatex"] 1623061595 "/home/gianluca/Symposium-ACSOS-2021/main.tex" "/home/gianluca/Symposium-ACSOS-2021/main.pdf" "main" 1623061602
+  "main.blg"
+["pdflatex"] 1623063087 "/home/gianluca/Symposium-ACSOS-2021/main.tex" "/home/gianluca/Symposium-ACSOS-2021/main.pdf" "main" 1623063087
   "/etc/texmf/web2c/texmf.cnf" 1611762810 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/gianluca/Symposium-ACSOS-2021/main.aux" 1623061595 1428 6bf658a0fa0d1304b8f17b5fc949157b ""
-  "/home/gianluca/Symposium-ACSOS-2021/main.tex" 1623061602 6012 512fa5823b479f209185c4d64fbcc63b ""
+  "/home/gianluca/Symposium-ACSOS-2021/main.aux" 1623063087 1849 d7ace99f294122f0ab94ec861f17b3e4 ""
+  "/home/gianluca/Symposium-ACSOS-2021/main.tex" 1623063085 6923 75f30221857f76e023ebb812144dc6ba ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -60,12 +60,12 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1611762840 4770781 1ed1abab22da9c3e2cc82e4db562318b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1611762867 8272014 1ab6dc59a1624131a07a92672b1ff4e3 ""
   "IEEEtran.cls" 1623057970 288304 b67b6fc6c2abb39f9b461923f5199343 ""
-  "main.aux" 1623061595 1428 6bf658a0fa0d1304b8f17b5fc949157b "pdflatex"
-  "main.bbl" 1623061468 3498 6b83240d7946747be68dd4b6ba664740 "bibtex main"
-  "main.tex" 1623061602 6012 512fa5823b479f209185c4d64fbcc63b ""
+  "main.aux" 1623063087 1849 d7ace99f294122f0ab94ec861f17b3e4 "pdflatex"
+  "main.bbl" 1623063087 5157 674a7d3664d4c953b38c41c6274a1e62 "bibtex main"
+  "main.tex" 1623063085 6923 75f30221857f76e023ebb812144dc6ba ""
   (generated)
-  "main.log"
   "main.aux"
-  "/home/gianluca/Symposium-ACSOS-2021/main.log"
   "/home/gianluca/Symposium-ACSOS-2021/main.pdf"
+  "main.log"
+  "/home/gianluca/Symposium-ACSOS-2021/main.log"
   "main.pdf"

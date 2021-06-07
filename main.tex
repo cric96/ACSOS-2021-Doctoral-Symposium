@@ -11,7 +11,7 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Towards Field Coordination Learning}
+\title{Towards Field-Based Coordination with Learning}
 
 \author{\IEEEauthorblockN{PhD Student Gianluca Aguzzi}
 \IEEEauthorblockA{\textit{University of Bologna} \\
@@ -36,13 +36,13 @@ Humans, in the last century, have filled the earth with computational entities.
 We find things able to compute in smartphones, fridges and watches. % improve this period
 Nowadays, these devices aren't isolated; rather, they form a hoard of inter-communicating entities capable of achieving collective tasks. 
 These systems exhibit properties usually observed in complex such as node acting in concurrent, 
-decentralized control and the global behaviour emerge from local interactions \cite{DBLP:conf/huc/Ferscha15}. 
+decentralized control and the global behaviour emerge from local interactions~\cite{DBLP:conf/huc/Ferscha15}. 
 Swarm of UAVs, a crowd of people, smart cities is all instances of these kinds of systems, usually called Collective Adaptive Systems.
 %
 %
 In literature, different techniques aim at taming this complexity at the engineering level.
 %
-Among the many, two solutions that use a top-down approach in expressing global behaviour are TOTA~\cite{DBLP:journals/tosem/MameiZ09} and Aggregate Computing~\cite{DBLP:journals/computer/BealPV15} (both classified under the umbrella of Field-Based Coordination \cite{DBLP:books/daglib/0015276}).
+Among the many, two solutions that use a top-down approach in expressing global behaviour are TOTA~\cite{DBLP:journals/tosem/MameiZ09} and Aggregate Computing~\cite{DBLP:journals/computer/BealPV15} (both classified under the umbrella of Field-Based Coordination~\cite{DBLP:books/daglib/0015276}).
 %
 The latter is a novel approach in which developers can express the collective behaviour by 
 a functional manipulation of a distributed data structure called a computational field.
@@ -53,11 +53,11 @@ Aggregate programming is backed by field calculus, a minimal set of instructions
 %
 On top of that, different building blocks have been built, to facilitate the high-level library definition.
 %
-Furthermore, crafting a specific blocks category is possible to verify relevant properties such as self-stabilization \cite{DBLP:conf/coordination/ViroliD14} and eventual consistency~\cite{DBLP:conf/saso/BealVPD16}.
+Furthermore, crafting a specific blocks category is possible to verify relevant properties such as self-stabilization~\cite{DBLP:conf/coordination/ViroliD14} and eventual consistency~\cite{DBLP:conf/saso/BealVPD16}.
 %
 Practically though, building these basic blocks is not as easy as it sounds. Moreover, it is difficult to guarantee certain quality levels under different network conditions (e.g., different typology, high node mobility,...).
 
-Outward of top-down declarative approaches, in the context of Multi Agent Systems other solutions leverage evolutionary computing \cite{DBLP:journals/swarm/BrambillaFBD13} and machine learning (in particular Multi Agent Reinforcement Learning \cite{DBLP:journals/tcyb/NguyenNN20}) to design distributed programs.
+Outward of top-down declarative approaches, in the context of Multi Agent Systems other solutions leverage evolutionary computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and machine learning (in particular Multi Agent Reinforcement Learning~\cite{DBLP:journals/tcyb/NguyenNN20}) to design distributed programs.
 Using these techniques bring near-optimum solutions to specific tasks.
 %
 Unfortunately, though, the main problems of those solutions are the difficulty in scaling up application complexity, the reusability of the behaviour found in other circumstances, and the "black-box" nature. 
@@ -67,15 +67,8 @@ Definitely, the Aggregate Computing model is challenging in terms of usual learn
 \item there isn't any population size guarantee,
 \item the neighbourhood is potentially highly dynamic,
 \item the system behaviour is usually evaluated from the macro-level and not from the micro-level, and
-\item each node has partial information about the system (in typical Dec-POMDP \cite{DBLP:conf/uai/BernsteinZI00} settings)
+\item each node has partial information about the system (in typical Dec-POMDP~\cite{DBLP:conf/uai/BernsteinZI00} settings)
 \end{enumerate*}
-%%TODO verify where to put it
-%Starting from the first point, Aggregate Computing needs a platform in which programs will be executed. 
-%Here, designers need to define aspects that the paradigm doesn't include, such as evaluation frequency, program displacement, and trust.
-%These themes are tackled in part in different works \cite{DBLP:journals/scp/CasadeiAV18, DBLP:journals/fi/CasadeiPPVW20}, but learning -- both online and offline -- is usually not considered and here could be crucial, 
-%avoiding complex parameters tuning and improving the system robustness and adaptivity. 
-%Regarding evaluation frequency, related work already applied Reinforcement Learning. Indeed, following an ad-hoc crafted reward function, we might bring the system to reduce energy consumption even in our solution.
-
 \section{Contribution and objectives}
 As far as we know, these two worlds are disjointed even if they speak a similar language. So our first intuition (and our key objective) was merging these approaches to gain benefits from both worlds creating a declarative, 
 composable and self-explanatory behaviour combined with online adaptivity and robustness towards environmental changes.
@@ -85,11 +78,36 @@ In related works, exists a well-known approach that easily matches with Aggregat
 %
 
 \section{Methodology and preliminary results}
-
+%
 As first step, we consider related work in Multi Agent Systems and Swarm Robotics, because, in some cases, problems has similar settings.
-
-
+%
+To reach our objective, we iteretevly 
+\begin{enumerate*}[label=(\roman*)]
+\item read related works,
+\item take inspiration from one of them and craft an initial prototype, and
+\item try to generalize the solution from complex problems
+\end{enumerate*}
+%
+Currently, we mainly focus on Bulding Block level, because, from our point of view, 
+it is the best point to apply learning. %%improve settings
+%
+Our test application is the gradient from a source zone, a idiomatic pattern useful for field based calculus for creating different collective behaviour
+ranging to distributed sensing, information diffusion and to build other complex pattern like Self-organising coordination regions~\cite{DBLP:conf/coordination/CasadeiPVN19}.
+Gradient suffers of slow rising up and differnet hand-crafted solution have been built.
+Our goal is to reach a similar perform of the best hand-crafted solution (called ULT gradient~\cite{DBLP:conf/saso/AudritoCDV17}).
+%
+%cite repos,
+%
 \section{Future work and research plan}
+Aggregate Computing needs a platform in which programs will be executed. 
+Here, designers need to define aspects that the paradigm doesn't include, 
+such as evaluation frequency, program displacement, and trust. 
+These themes are tackled in part in different works~\cite{DBLP:journals/scp/CasadeiAV18, DBLP:journals/fi/CasadeiPPVW20, DBLP:journals/corr/abs-2012-13806}, 
+but online learning is usually not considered and here could be crucial, 
+avoiding complex parameters tuning and improving the system robustness.
+Regarding evaluation frequency, related work already applied Reinforcement Learning. 
+Indeed, following an ad-hoc crafted reward function, we might bring the system to reduce energy 
+consumption even in our solution.
 
 \bibliographystyle{ieeetr}
 \bibliography{mybibfile}
