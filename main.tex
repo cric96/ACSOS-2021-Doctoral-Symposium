@@ -1,60 +1,45 @@
-\documentclass[3p]{elsarticle}
-
-\usepackage{lineno,hyperref}
-
-\journal{Journal of \LaTeX\ Templates}
-
-%%%%%%%%%%%%%%%%%%%%%%%
-%% Elsevier bibliography styles
-%%%%%%%%%%%%%%%%%%%%%%%
-%% To change the style, put a % in front of the second line of the current style and
-%% remove the % from the second line of the style you would like to use.
-%%%%%%%%%%%%%%%%%%%%%%%
-
-%% Numbered
-%\bibliographystyle{model1-num-names}
-
-%% Numbered without titles
-%\bibliographystyle{model1a-num-names}
-
-%% Harvard
-%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
-
-%% Vancouver numbered
-%\usepackage{numcompress}\bibliographystyle{model3-num-names}
-
-%% Vancouver name/year
-%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
-
-%% APA style
-%\bibliographystyle{model5-names}\biboptions{authoryear}
-
-%% AMA style
-%\usepackage{numcompress}\bibliographystyle{model6-num-names}
-
-%% `Elsevier LaTeX' style
-\bibliographystyle{elsarticle-num}
-%%%%%%%%%%%%%%%%%%%%%%%
-
+\documentclass[conference]{IEEEtran}
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage[inline]{enumitem}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\begin{frontmatter}
+\title{Towards Field Coordination Learning}
 
-\title{Towards Field-Based Coordination Learning} %%TO improve
+\author{\IEEEauthorblockN{PhD Student Gianluca Aguzzi}
+\IEEEauthorblockA{\textit{University of Bologna} \\
+Cesena, Italy \\
+gianluca.aguzzi@unibo.it}
+\and
+\IEEEauthorblockN{Supervisor Mirko Viroli}
+\IEEEauthorblockA{\textit{University of Bologna} \\
+Cesena, Italy \\
+mirko.viroli@unibo.it}
+}
 
+\maketitle
 
-%% Group authors per affiliation:
-\author{Gianluca Aguzzi}
-\address{\texttt{gianluca.aguzzi@unibo.it}}
-\begin{abstract}
+\begin{IEEEkeywords}
+Field Coordination, Aggregate Computing, Multi Agent Reinforcement Learning
+\end{IEEEkeywords}
+
+\section{Motivation and challenges}
 Humans, in the last century, have filled the earth with computational entities. 
 %
 We find things able to compute in smartphones, fridges and watches. % improve this period
 Nowadays, these devices aren't isolated; rather, they form a hoard of inter-communicating entities capable of achieving collective tasks. 
-These systems (usually refered as Collective Adapative Systems) exhibit properties usually observed in complex such as node acting in concurrent, 
+These systems exhibit properties usually observed in complex such as node acting in concurrent, 
 decentralized control and the global behaviour emerge from local interactions \cite{DBLP:conf/huc/Ferscha15}. 
 Swarm of UAVs, a crowd of people, smart cities is all instances of these kinds of systems, usually called Collective Adaptive Systems.
-
+%
+%
 In literature, different techniques aim at taming this complexity at the engineering level.
 %
 Among the many, two solutions that use a top-down approach in expressing global behaviour are TOTA~\cite{DBLP:journals/tosem/MameiZ09} and Aggregate Computing~\cite{DBLP:journals/computer/BealPV15} (both classified under the umbrella of Field-Based Coordination \cite{DBLP:books/daglib/0015276}).
@@ -73,27 +58,39 @@ Furthermore, crafting a specific blocks category is possible to verify relevant 
 Practically though, building these basic blocks is not as easy as it sounds. Moreover, it is difficult to guarantee certain quality levels under different network conditions (e.g., different typology, high node mobility,...).
 
 Outward of top-down declarative approaches, in the context of Multi Agent Systems other solutions leverage evolutionary computing \cite{DBLP:journals/swarm/BrambillaFBD13} and machine learning (in particular Multi Agent Reinforcement Learning \cite{DBLP:journals/tcyb/NguyenNN20}) to design distributed programs.
-Using these techniques bring to near-optimum solution in specific tasks.
+Using these techniques bring near-optimum solutions to specific tasks.
 %
-Unfortunately, though, the main problems of those solutions are the difficulty in scaling up application complexity and the "black-box" nature.
+Unfortunately, though, the main problems of those solutions are the difficulty in scaling up application complexity, the reusability of the behaviour found in other circumstances, and the "black-box" nature. 
+%
+Definitely, the Aggregate Computing model is challenging in terms of usual learning problems. Indeed:
+\begin{enumerate*}[label=(\roman*)]
+\item there isn't any population size guarantee,
+\item the neighbourhood is potentially highly dynamic,
+\item the system behaviour is usually evaluated from the macro-level and not from the micro-level, and
+\item each node has partial information about the system (in typical Dec-POMDP \cite{DBLP:conf/uai/BernsteinZI00} settings)
+\end{enumerate*}
+%%TODO verify where to put it
+%Starting from the first point, Aggregate Computing needs a platform in which programs will be executed. 
+%Here, designers need to define aspects that the paradigm doesn't include, such as evaluation frequency, program displacement, and trust.
+%These themes are tackled in part in different works \cite{DBLP:journals/scp/CasadeiAV18, DBLP:journals/fi/CasadeiPPVW20}, but learning -- both online and offline -- is usually not considered and here could be crucial, 
+%avoiding complex parameters tuning and improving the system robustness and adaptivity. 
+%Regarding evaluation frequency, related work already applied Reinforcement Learning. Indeed, following an ad-hoc crafted reward function, we might bring the system to reduce energy consumption even in our solution.
 
-As far as we know, these two worlds are disjointed even if they speak a similar language. So our first intuition was merging these approaches. 
-This has inevitably led us to ask ourselves these questions At what level of abstraction (middleware? Application API? Building blocks?) learning can be useful for Aggregate Computing? 
-In related works, exists a well-known approach that easly match with Aggregate Computing? There are some benefits?
+\section{Contribution and objectives}
+As far as we know, these two worlds are disjointed even if they speak a similar language. So our first intuition (and our key objective) was merging these approaches to gain benefits from both worlds creating a declarative, 
+composable and self-explanatory behaviour combined with online adaptivity and robustness towards environmental changes.
+%
+This has inevitably led us to ask ourselves these questions, that guided us in the prelimary research phases: at what level of abstraction (middleware? Application API? Building blocks?) learning can be useful for Aggregate Computing? 
+In related works, exists a well-known approach that easily matches with Aggregate Computing? There are some benefits?
+%
 
-Starting from the first point, Aggregate Computing needs a platform in which programs will be executed. 
-Here, designers need to define aspects that the paradigm doesn't include, such as evaluation frequency, program displacement, and trust.
-These themes are tackled in part in different works \cite{DBLP:journals/scp/CasadeiAV18, DBLP:journals/fi/CasadeiPPVW20}, but learning -- both online and offline -- is usually not considered and here could be crucial, avoiding complex parameters tuning and improving the system robustness. 
-Regarding evaluation frequency, related work already applied RL. Indeed, following an ad-hoc crafted reward function, we might bring the system to reduce energy consumption even in our solution.
+\section{Methodology and preliminary results}
+
+As first step, we consider related work in Multi Agent Systems and Swarm Robotics, because, in some cases, problems has similar settings.
 
 
-\end{abstract}
-\begin{keyword}
-Field Coordination \sep Aggregate Computing \sep Multi Agent Reinforcement Learning
-\end{keyword}
+\section{Future work and research plan}
 
-\end{frontmatter}
-
+\bibliographystyle{ieeetr}
 \bibliography{mybibfile}
-
 \end{document}
