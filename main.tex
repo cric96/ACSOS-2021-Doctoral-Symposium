@@ -27,74 +27,66 @@ mirko.viroli@unibo.it}
 \maketitle
 
 \begin{IEEEkeywords}
-Field Coordination, Aggregate Computing, Multi Agent Reinforcement Learning
+Field Coordination, Aggregate Computing, Multi-Agent Reinforcement Learning
 \end{IEEEkeywords}
 
 \section{Motivation and challenges}
 Humans, in the last century, have filled the earth with computational entities. 
 %
-We find things able to compute in smartphones, fridges and watches. % improve this period
+We find things able to compute in smartphones, fridges, and watches. % improve this period
 Nowadays, these devices aren't isolated; rather, they form a hoard of inter-communicating entities capable of achieving collective tasks. 
 These systems exhibit properties usually observed in complex such as node acting in concurrent, 
-decentralized control and the global behaviour emerge from local interactions~\cite{DBLP:conf/huc/Ferscha15}. 
+decentralized control and the global behavior emerge from local interactions~\cite{DBLP:conf/huc/Ferscha15}. 
 Swarm of UAVs, a crowd of people, smart cities is all instances of these kinds of systems, usually called Collective Adaptive Systems.
 %
-%
 In literature, different techniques aim at taming this complexity at the engineering level.
-%
 Among the many, two solutions that use a top-down approach in expressing global behaviour are TOTA~\cite{DBLP:journals/tosem/MameiZ09} and Aggregate Computing~\cite{DBLP:journals/computer/BealPV15} (both classified under the umbrella of Field-Based Coordination~\cite{DBLP:books/daglib/0015276}).
-%
-The latter is a novel approach in which developers can express the collective behaviour by 
+The latter is a novel approach in which developers can express the collective behavior by
 a functional manipulation of a distributed data structure called a computational field.
-%
 In bottom-up approaches instead, self-organization is something that emerges, tuning algorithm parameters.
-%
 Aggregate programming is backed by field calculus, a minimal set of instructions necessary to express whatever spatiotemporal computation using computational field manipulation~\cite{DBLP:conf/coordination/AudritoBDV18}. 
-%
 On top of that, different building blocks have been built, to facilitate the high-level library definition.
-%
 Furthermore, crafting a specific blocks category is possible to verify relevant properties such as self-stabilization~\cite{DBLP:conf/coordination/ViroliD14} and eventual consistency~\cite{DBLP:conf/saso/BealVPD16}.
-%
-Practically though, building these basic blocks is not as easy as it sounds. Moreover, it is difficult to guarantee certain quality levels under different network conditions (e.g., different typology, high node mobility,...).
+Practically though, building these basic blocks is not as easy as it sounds. 
+Moreover, it is difficult to guarantee certain quality levels under different network conditions (e.g., different typologies, high node mobility, etc.)
 
-Outward of top-down declarative approaches, in the context of Multi Agent Systems other solutions leverage evolutionary computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and machine learning (in particular Multi Agent Reinforcement Learning~\cite{DBLP:journals/tcyb/NguyenNN20}) to design distributed programs.
-Using these techniques bring near-optimum solutions to specific tasks.
-%
-Unfortunately, though, the main problems of those solutions are the difficulty in scaling up application complexity, the reusability of the behaviour found in other circumstances, and the "black-box" nature. 
+Outward of top-down declarative approaches, in the context of Multi-Agent Systems, other solutions leverage evolutionary computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and machine learning (in particular Multi-Agent Reinforcement Learning~\cite{DBLP:journals/tcyb/NguyenNN20}) to design distributed programs.
+Using these techniques brings near-optimum solutions to specific tasks.
+Unfortunately, though, the main problems of those solutions are the difficulty in scaling up application complexity, the reusability of the behavior found in other circumstances, and the "black-box" nature. 
 %
 Definitely, the Aggregate Computing model is challenging in terms of usual learning problems. Indeed:
 \begin{enumerate*}[label=(\roman*)]
 \item there isn't any population size guarantee,
-\item the neighbourhood is potentially highly dynamic,
-\item the system behaviour is usually evaluated from the macro-level and not from the micro-level, and
+\item the neighborhood is potentially highly dynamic,
+\item the system behavior is usually evaluated from the macro-level and not from the micro-level, and
 \item each node has partial information about the system (in typical Dec-POMDP~\cite{DBLP:conf/uai/BernsteinZI00} settings)
 \end{enumerate*}
 \section{Contribution and objectives}
 As far as we know, these two worlds are disjointed even if they speak a similar language. So our first intuition (and our key objective) was merging these approaches to gain benefits from both worlds creating a declarative, 
-composable and self-explanatory behaviour combined with online adaptivity and robustness towards environmental changes.
+composable and self-explanatory behavior combined with online adaptivity and robustness towards environmental changes.
 %
-This has inevitably led us to ask ourselves these questions, that guided us in the prelimary research phases: at what level of abstraction (middleware? Application API? Building blocks?) learning can be useful for Aggregate Computing? 
+This has inevitably led us to ask ourselves these questions that guided us in the preliminary research phases: at what level of abstraction (middleware? Application API? Building blocks?) learning can be useful for Aggregate Computing? 
 In related works, exists a well-known approach that easily matches with Aggregate Computing? There are some benefits?
 %
-
 \section{Methodology and preliminary results}
 %
-As first step, we consider related work in Multi Agent Systems and Swarm Robotics, because, in some cases, problems has similar settings.
-%
-To reach our objective, we iteretevly 
+As the first step, we consider related work in Multi-Agent Systems and Swarm Robotics because, in some cases, problems have similar settings.
+To reach our objective, we iteratively 
 \begin{enumerate*}[label=(\roman*)]
 \item read related works,
 \item take inspiration from one of them and craft an initial prototype, and
 \item try to generalize the solution from complex problems
 \end{enumerate*}
 %
-Currently, we mainly focus on Bulding Block level, because, from our point of view, 
-it is the best point to apply learning. %%improve settings
+Currently, we mainly focus on building blocks of behavior learning; because they have an outstanding effect at the application level but
+at the same time, the behaviors expressed are simple, so easily synthesized via learning.  %%improve settings
 %
-Our test application is the gradient from a source zone, a idiomatic pattern useful for field based calculus for creating different collective behaviour
-ranging to distributed sensing, information diffusion and to build other complex pattern like Self-organising coordination regions~\cite{DBLP:conf/coordination/CasadeiPVN19}.
-Gradient suffers of slow rising up and differnet hand-crafted solution have been built.
-Our goal is to reach a similar perform of the best hand-crafted solution (called ULT gradient~\cite{DBLP:conf/saso/AudritoCDV17}).
+Our test application is the distance gradient from a source zone. 
+It is an idiomatic pattern useful for Field-Based calculus for creating different collective behavior ranging from distributed sensing to information diffusion.
+Furthermore, it is used to build other complex patterns like Self-organising coordination regions~\cite{DBLP:conf/coordination/CasadeiPVN19}.
+%
+Naive gradient implementations suffer from slow-rising, so different hand-crafted solutions have been built, such as Flex, BIS, and ULT~\cite{DBLP:conf/saso/AudritoCDV17}.
+Our goal is to reach a similar performance of the best hand-crafted solution (the ULT gradient).
 %
 %cite repos,
 %
