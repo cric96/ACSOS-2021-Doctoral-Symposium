@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex main"] 1623168542 "main.aux" "main.bbl" "main" 1623168542
+["bibtex main"] 1623169553 "main.aux" "main.bbl" "main" 1623169567
   "/usr/share/texmf-dist/bibtex/bst/base/ieeetr.bst" 1617738065 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "main.aux" 1623168542 2349 13134f91a0a14e0820ff3e421c26cfc0 "pdflatex"
+  "main.aux" 1623169554 2349 e6a0f95e98a1295f769dabefaa00b91b "pdflatex"
   "mybibfile.bib" 1623168498 16265 a75abb10e2c8d943ed3e10ef46ae27ed ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1623168542 "/home/gianluca/Articles/ACSOS-2021-Doctoral-Symposium/main.tex" "/home/gianluca/Articles/ACSOS-2021-Doctoral-Symposium/main.pdf" "main" 1623168542
-  "/home/gianluca/Articles/ACSOS-2021-Doctoral-Symposium/main.aux" 1623168542 2349 13134f91a0a14e0820ff3e421c26cfc0 ""
-  "/home/gianluca/Articles/ACSOS-2021-Doctoral-Symposium/main.tex" 1623168541 8440 e61042821aa9aff40797f9129d67a6e1 ""
+["pdflatex"] 1623169553 "/home/gianluca/Articles/ACSOS-2021-Doctoral-Symposium/main.tex" "/home/gianluca/Articles/ACSOS-2021-Doctoral-Symposium/main.pdf" "main" 1623169567
+  "/home/gianluca/Articles/ACSOS-2021-Doctoral-Symposium/main.aux" 1623169554 2349 e6a0f95e98a1295f769dabefaa00b91b ""
+  "/home/gianluca/Articles/ACSOS-2021-Doctoral-Symposium/main.tex" 1623169567 9680 8da05d545f9ea7295041dd1a023743d4 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1617738065 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1617738065 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1617738065 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -58,12 +58,12 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1623105574 5045527 a0ef06d06af438d62994481e52c2af5f ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1623105550 2812672 578c36233e4946f0715ea1288224e117 ""
   "IEEEtran.cls" 1623162847 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
-  "main.aux" 1623168542 2349 13134f91a0a14e0820ff3e421c26cfc0 "pdflatex"
-  "main.bbl" 1623168542 6827 4cc2d6eea3f51bf207629604c760b2f0 "bibtex main"
-  "main.tex" 1623168541 8440 e61042821aa9aff40797f9129d67a6e1 ""
+  "main.aux" 1623169554 2349 e6a0f95e98a1295f769dabefaa00b91b "pdflatex"
+  "main.bbl" 1623169553 6827 4cc2d6eea3f51bf207629604c760b2f0 "bibtex main"
+  "main.tex" 1623169567 9680 8da05d545f9ea7295041dd1a023743d4 ""
   (generated)
   "main.aux"
-  "/home/gianluca/Articles/ACSOS-2021-Doctoral-Symposium/main.log"
-  "main.log"
-  "main.pdf"
   "/home/gianluca/Articles/ACSOS-2021-Doctoral-Symposium/main.pdf"
+  "main.log"
+  "/home/gianluca/Articles/ACSOS-2021-Doctoral-Symposium/main.log"
+  "main.pdf"

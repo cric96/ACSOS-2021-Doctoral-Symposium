@@ -78,9 +78,10 @@ To reach our objective, we iteratively
 \item try to generalize the solution from complex problems
 \end{enumerate*}
 Aggregate Computing currently is supported by different toolkit as ScaFi~\cite{DBLP:conf/ecoop/CasadeiV16} and Protelis~\cite{DBLP:conf/sac/PianiniVB15}, making
-our \emph{trial-and-error} process faster.
-%
-Currently, we mainly focus on building blocks of behavior learning; because they have an outstanding effect at the application level but
+our \emph{trial-and-error} process faster. In this first part, we focused on pratical results than fundational one, hiding detalis of engineering 
+hybrid systems like these.  
+
+Currently, we applied learning on building blocks; because they have an outstanding effect at the application level but
 at the same time, the behaviors expressed are simple, so easily synthesized via learning.  %%improve settings
 %
 Our test application is the distance gradient from a source zone. 
@@ -97,8 +98,19 @@ manages the non-stationary problem nature). It is worth noting that, no converge
 the Nash Equilibra convergence (in particular in Multi Agent Reinforcement Learning).
 %
 As first attempt, we try to encode our gradient problem in terms of a learning problem and then using Q-Learning (or also the Monte Carlo Learning~\cite{DBLP:conf/nips/Thrun99}).
+The experiments done help us to clearly asses the problem in this combination such as. 
+The difficult tasks concern: encoding local state giving neighbours values, fina a right reward function that expresses the utility of 
+the individual regarding the collective result, encode right actions, highly non-stationary behaviour. 
 % todo speak about regression model
-Finally, observing evolutionary robotics, we try some basic evolutionary methods, such as Neuroevolution of Augmenting Topologies Alternatives~\cite{DBLP:journals/ec/StanleyM02}
+In particular, the gradient problems is fairly difficult in encoding in learning task speaking due the continuous state and action space.
+So, we also consider to use Neural Network in order to perform regression task, using a Backprograpagion algorithm to 
+enhance the model performance. 
+Sadly, this method doesn't not scale in complex problem: even with a global system observation, is difficult to know the right result at certain point in time, so 
+we cannot give a right baseline for a Backprograpagion algorithms.
+%
+Finally, observing evolutionary robotics and for avoiding loss function definition, we try some basic evolutionary methods, such as Neuroevolution of Augmenting Topologies Alternatives~\cite{DBLP:journals/ec/StanleyM02}.
+The benefinits of evolutionary algorithm is the very limited constraied given. Indeed the encoding is fairly straightforward.
+The problems encountered are the slowness and the difficulty in generalization, that is one of our goals.
 %
 \section{Future work and research plan}
 Aggregate Computing needs a platform in which programs will be executed. 
