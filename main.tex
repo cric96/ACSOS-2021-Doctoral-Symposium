@@ -77,6 +77,8 @@ To reach our objective, we iteratively
 \item take inspiration from one of them and craft an initial prototype, and
 \item try to generalize the solution from complex problems
 \end{enumerate*}
+Aggregate Computing currently is supported by different toolkit as ScaFi~\cite{DBLP:conf/ecoop/CasadeiV16} and Protelis~\cite{DBLP:conf/sac/PianiniVB15}, making
+our \emph{trial-and-error} process faster.
 %
 Currently, we mainly focus on building blocks of behavior learning; because they have an outstanding effect at the application level but
 at the same time, the behaviors expressed are simple, so easily synthesized via learning.  %%improve settings
@@ -88,7 +90,15 @@ Furthermore, it is used to build other complex patterns like Self-organising coo
 Naive gradient implementations suffer from slow-rising, so different hand-crafted solutions have been built, such as Flex, BIS, and ULT~\cite{DBLP:conf/saso/AudritoCDV17}.
 Our goal is to reach a similar performance of the best hand-crafted solution (the ULT gradient).
 %
-%cite repos,
+From related works, we observe a current trend in applying Reinforcement Learning in distributed applications (called Indipedent Learning, because each agent conceptually learns the policy without knowing other agents).
+Q-Learning~\cite{DBLP:journals/ras/Krose95}, even if it is born for a single agent and for a stationary enviroment, it is applied in 
+different largerly applied scenarios, also with same improvement (e.g. Hysteretic Q-Learning~\cite{DBLP:conf/iros/MatignonLF07} tries to 
+manages the non-stationary problem nature). It is worth noting that, no convergence theorem to global optiomal policy exists in Multi Agent settings, we had in some cases
+the Nash Equilibra convergence (in particular in Multi Agent Reinforcement Learning).
+%
+As first attempt, we try to encode our gradient problem in terms of a learning problem and then using Q-Learning (or also the Monte Carlo Learning~\cite{DBLP:conf/nips/Thrun99}).
+% todo speak about regression model
+Finally, observing evolutionary robotics, we try some basic evolutionary methods, such as Neuroevolution of Augmenting Topologies Alternatives~\cite{DBLP:journals/ec/StanleyM02}
 %
 \section{Future work and research plan}
 Aggregate Computing needs a platform in which programs will be executed. 
