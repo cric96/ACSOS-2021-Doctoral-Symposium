@@ -97,9 +97,12 @@ different largerly applied scenarios, also with same improvement (e.g. Hystereti
 manages the non-stationary problem nature). It is worth noting that, no convergence theorem to global optiomal policy exists in Multi Agent settings, we had in some cases
 the Nash Equilibra convergence (in particular in Multi Agent Reinforcement Learning).
 %
+At the moment of writing, neither of the following techinques is well applied with Aggregate Computing model, they are
+only a first explanatory phases to understand limitations and opportunities.
+%
 As first attempt, we try to encode our gradient problem in terms of a learning problem and then using Q-Learning (or also the Monte Carlo Learning~\cite{DBLP:conf/nips/Thrun99}).
 The experiments done help us to clearly asses the problem in this combination such as. 
-The difficult tasks concern: encoding local state giving neighbours values, fina a right reward function that expresses the utility of 
+The difficult tasks concern: encoding local state giving neighbours values (problem in finding a good reppresentation), fina a right reward function that expresses the utility of 
 the individual regarding the collective result, encode right actions, highly non-stationary behaviour. 
 % todo speak about regression model
 In particular, the gradient problems is fairly difficult in encoding in learning task speaking due the continuous state and action space.
@@ -113,7 +116,12 @@ The benefinits of evolutionary algorithm is the very limited constraied given. I
 The problems encountered are the slowness and the difficulty in generalization, that is one of our goals.
 %
 \section{Future work and research plan}
-Aggregate Computing needs a platform in which programs will be executed. 
+Graph Neural Network~\cite{DBLP:journals/tnn/ScarselliGTHM09}.
+
+%% writinig about the representation problems, solve in similar problem (graphs) using Graph Neural Network
+%% writing about the non stationaritn problems, solved using deep learning model and "mind representation"
+%% writing about the large scale problems (tackled in the thesis)
+Beyond building blocks learning, Aggregate Computing needs a platform in which programs will be executed. 
 Here, designers need to define aspects that the paradigm doesn't include, 
 such as evaluation frequency, program displacement, and trust. 
 These themes are tackled in part in different works~\cite{DBLP:journals/scp/CasadeiAV18, DBLP:journals/fi/CasadeiPPVW20, DBLP:journals/corr/abs-2012-13806}, 
@@ -122,6 +130,14 @@ avoiding complex parameters tuning and improving the system robustness.
 Regarding evaluation frequency, related work already applied Reinforcement Learning. 
 Indeed, following an ad-hoc crafted reward function, we might bring the system to reduce energy 
 consumption even in our solution.
+% research plan
+\begin{itemize}
+    \item 1st year (4 month remained): concluding experiments with basic building blocks, create a clear test base to compare the standard application with our new apporach
+    \item 2st year: (fundational oriented) solve with method choosen block that currently have problem (such as S, sparse choice, used to create a distributed leader election),
+    define guidelines in merging these two approach (from an engineering point of view), creating a sort o hybrid programming methodologhy (), verify if Aggregate Computing could be used to create a distributed real time learning methodology (e.g. extending standard Graph Neural Networks)
+    \item 3st year: extends learninig tasks to the framework level, closing the reality gap, making the deployment in real application efficiently. Understands implicitions
+    of this new way of programs, try to insert in the Aggregate Computing model learning concept, at the operational semantics level. 
+\end{itemize}
 
 \bibliographystyle{ieeetr}
 \bibliography{mybibfile}
