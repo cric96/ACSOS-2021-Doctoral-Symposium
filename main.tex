@@ -80,7 +80,7 @@ To reach our objective, we iteratively
 Aggregate Computing currently is supported by different toolkit as ScaFi~\cite{DBLP:conf/ecoop/CasadeiV16} and Protelis~\cite{DBLP:conf/sac/PianiniVB15}, making
 our \emph{trial-and-error} process faster. In this first part, we focused on practical results than foundational ones, hiding details of engineering hybrid systems like these.  
 
-Currently, we applied learning on building blocks; because they have an outstanding effect at the application level but
+Currently, we applied learning algorithms at the building blocks level; because they have an outstanding effect at the application level but
 at the same time, the behaviors expressed are simple, so easily synthesized via learning.  %%improve settings
 %
 Our test application is the distance gradient from a source zone. 
@@ -112,11 +112,17 @@ The benefits of evolutionary algorithms are limited constrained imposed. Indeed 
 The problems encountered with this approach are the slowness and the difficulty in generalization.
 %
 \section{Future work and research plan}
-Graph Neural Network~\cite{DBLP:journals/tnn/ScarselliGTHM09}.
+One of the problems encountered is the difficulty of encoding the state space in a fixed and dense dimension. Indeed, the overall graph structure is dynamic, so each node might perceive different neighbors at each time step.
+In literature, these problems are referred to as \emph{node embedding}. Different techniques aim at learning the embedding from a specific graph. One of them is Graph Neural Network~\cite{DBLP:journals/tnn/ScarselliGTHM09}.
+Even if the configuration is quite different from our model, we can take inspiration from this branch of Neural Network to possibly improve our learning processes.
 
-%% writinig about the representation problems, solve in similar problem (graphs) using Graph Neural Network
-%% writing about the non stationaritn problems, solved using deep learning model and "mind representation"
-%% writing about the large scale problems (tackled in the thesis)
+Deep Reinforcement Learning, thanks to the famous work of Atari games~\cite{DBLP:journals/corr/HosuR16}, has gained interest in the last few years. Novel works~\cite{DBLP:journals/aamas/Hernandez-LealK19} investigate the application of deep neural networks model in Multi-Agents context, 
+to solve well-known problems (non-stationary, partially observability, large state space, etc.). Currently, due to the simple nature of building blocks, we do not apply these techniques. But, if we try to apply learning processes even if
+at application layers, these techniques might be necessary.
+
+The most of works in Multi-Agent Systems doesn't not consider the possible enomous large scale of real applications, even if some exceptions exists~\cite{nguyen2018reinforcement}. In Aggregate Computing we need to write application \emph{scale free}, so we need to built 
+also the learning algorithm and model able to work regardless of the system scale, that currently isn't considered in depth.
+
 Beyond building block learning, Aggregate Computing needs a platform in which programs will be executed. 
 Here, designers need to define aspects that the paradigm doesn't include, 
 such as evaluation frequency, program displacement, and trust. 
