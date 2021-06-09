@@ -94,8 +94,7 @@ From related works, we observe a current trend in applying Reinforcement Learnin
 Q-Learning~\cite{DBLP:journals/ras/Krose95}, even if it is born for a single agent and a stationary environment, it is applied in different scenarios, also with some improvement (e.g. Hysteretic Q-Learning~\cite{DBLP:conf/iros/MatignonLF07} tries to manage the non-stationary problem nature). It is worth noting that, no convergence theorem to global optiomal policy exists in Multi Agent settings, we had in some cases
 the Nash Equilibra convergence (in particular in Multi-Agent Reinforcement Learning).
 %
-At the moment of writing, neither of the following techniques is well applied with the Aggregate Computing model. They are
-only first explanatory phases to understand limitations and opportunities.
+At the moment of writing, neither of the following techniques is well applied with the Aggregate Computing model. They are investigations that led us to understand limitations and opportunities.
 %
 As the first attempt, we try to encode our gradient problem in terms of a learning problem and then using Q-Learning (or also the Monte Carlo Learning~\cite{DBLP:conf/nips/Thrun99}).
 These experiments have shed light on some difficulties for us, which are: encoding local state giving neighbors values (a problem in finding a good representation), finding a right reward function that expresses the utility individuals
@@ -113,15 +112,15 @@ The problems encountered with this approach are the slowness and the difficulty 
 %
 \section{Future work and research plan}
 One of the problems encountered is the difficulty of encoding the state space in a fixed and dense dimension. Indeed, the overall graph structure is dynamic, so each node might perceive different neighbors at each time step.
-In literature, these problems are referred to as \emph{node embedding}. Different techniques aim at learning the embedding from a specific graph. One of them is Graph Neural Network~\cite{DBLP:journals/tnn/ScarselliGTHM09}.
+In literature, these problems are referred to \emph{node embedding}. Different techniques aim at learning the embedding from a specific graph. One of them is Graph Neural Network~\cite{DBLP:journals/tnn/ScarselliGTHM09}.
 Even if the configuration is quite different from our model, we can take inspiration from this branch of Neural Network to possibly improve our learning processes.
 
 Deep Reinforcement Learning, thanks to the famous work of Atari games~\cite{DBLP:journals/corr/HosuR16}, has gained interest in the last few years. Novel works~\cite{DBLP:journals/aamas/Hernandez-LealK19} investigate the application of deep neural networks model in Multi-Agents context, 
 to solve well-known problems (non-stationary, partially observability, large state space, etc.). Currently, due to the simple nature of building blocks, we do not apply these techniques. But, if we try to apply learning processes even if
 at application layers, these techniques might be necessary.
 
-The most of works in Multi-Agent Systems doesn't not consider the possible enomous large scale of real applications, even if some exceptions exists~\cite{nguyen2018reinforcement}. In Aggregate Computing we need to write application \emph{scale free}, so we need to built 
-also the learning algorithm and model able to work regardless of the system scale, that currently isn't considered in depth.
+Most works in Multi-Agent Systems do not consider the possible enormous large scale of real applications, even if some exceptions exists~\cite{nguyen2018reinforcement}. With Aggregate Computing we write applications \emph{scale free}, so we need to use/create learning algorithms and models able to work
+regardless of the system scale, that currently isn't considered in depth.
 
 Beyond building block learning, Aggregate Computing needs a platform in which programs will be executed. 
 Here, designers need to define aspects that the paradigm doesn't include, 
@@ -131,6 +130,9 @@ but online learning is usually not considered and here could be crucial,
 avoiding complex parameters tuning and improving the system robustness.
 Regarding evaluation frequency, related work already applied Reinforcement Learning. 
 Indeed, following an ad-hoc crafted reward function, we might bring the system to reduce energy consumption even in our solution.
+
+In conclusion, we try to define a research path that brings us in a complete integration between the Field-Based Coordination and Learning models. Even if is quite opaque, the main
+steps that we expected to follow are:
 % research plan
 \begin{itemize}
     \item 1st year: (4 months remained): concluding experiments with basic building blocks, create a clear test base to compare the standard application with our new approach. Deep learning models, Multi-agent Reinforcement Learning, and Graph Neural networks idea might be integrated to reach good solutions.
