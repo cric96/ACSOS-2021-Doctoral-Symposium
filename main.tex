@@ -90,9 +90,10 @@ Furthermore, it is used to build other complex patterns like Self-organising coo
 Naive gradient implementations suffer from slow-rising, so different hand-crafted solutions have been built, such as Flex, BIS, and ULT~\cite{DBLP:conf/saso/AudritoCDV17}.
 Our goal is to reach a similar performance of the best hand-crafted solution (the ULT gradient).
 %
-From related works, we observe a current trend in applying Reinforcement Learning in distributed applications (called Independent Reinforcement Learning, because each agent conceptually learns the policy without knowing other agents).
-Q-Learning~\cite{DBLP:journals/ras/Krose95}, even if it is born for a single agent and a stationary environment, it is applied in different scenarios, also with some improvement (e.g. Hysteretic Q-Learning~\cite{DBLP:conf/iros/MatignonLF07} tries to manage the non-stationary problem nature). It is worth noting that, no convergence theorem to global optiomal policy exists in Multi Agent settings, we had in some cases
-the Nash Equilibra convergence (in particular in Multi-Agent Reinforcement Learning).
+From related works, we observe a current trend in applying Reinforcement Learning in distributed applications (called Independent Reinforcement Learning~\cite{DBLP:conf/icml/Tan93}, because each agent conceptually learns the policy without knowing other agents).
+Q-Learning~\cite{DBLP:journals/ras/Krose95}, even if it is born for a single agent and a stationary environment, it is applied in different scenarios, also with some improvement (e.g. Hysteretic Q-Learning~\cite{DBLP:conf/iros/MatignonLF07} tries to manage the non-stationary problem nature).
+It is worth noting that no convergence theorem to global optimal policy exists in Multi-Agent settings. 
+Usually, Nash Equilibrium~\cite{DBLP:conf/icml/HuW98} is proved to assess a good Multi-Agent learning algorithm, but it has not the same meaning of a global optimal policy.
 %
 At the moment of writing, neither of the following techniques is well applied with the Aggregate Computing model. They are investigations that led us to understand limitations and opportunities.
 %
