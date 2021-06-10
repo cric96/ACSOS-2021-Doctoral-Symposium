@@ -11,7 +11,7 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Towards Field-Based Coordination with Learning}
+\title{Towards Field-Based Coordination with Learning, Directions, Issues, and Opportunities}
 
 \author{\IEEEauthorblockN{PhD Student Gianluca Aguzzi}
 \IEEEauthorblockA{\textit{University of Bologna} \\
@@ -35,23 +35,22 @@ Humans, in the last century, have filled the earth with computational entities.
 %
 We find things able to compute in smartphones, fridges, and watches. % improve this period
 Nowadays, these devices aren't isolated; rather, they form a hoard of inter-communicating entities capable of achieving collective tasks. 
-These systems exhibit properties usually observed in complex such as node acting in concurrent, 
-decentralized control and the global behavior emerge from local interactions~\cite{DBLP:conf/huc/Ferscha15}. 
-Swarm of UAVs, a crowd of people, smart cities is all instances of these kinds of systems, usually called Collective Adaptive Systems.
+These systems exhibit properties usually observed in complex ones, such as large scale, 
+decentralized control, and the global behavior that emerges from local interactions~\cite{DBLP:conf/huc/Ferscha15}. 
+Swarm of UAVs, a crowd of people, and smart cities are all instances of these kinds of systems, usually called Collective Adaptive Systems.
 %
 In literature, different techniques aim at taming this complexity at the engineering level.
 Among the many, two solutions that use a top-down approach in expressing global behaviour are TOTA~\cite{DBLP:journals/tosem/MameiZ09} and Aggregate Computing~\cite{DBLP:journals/computer/BealPV15} (both classified under the umbrella of Field-Based Coordination~\cite{DBLP:books/daglib/0015276}).
-The latter is a novel approach in which developers can express the collective behavior by
-a functional manipulation of a distributed data structure called a computational field.
-In bottom-up approaches instead, self-organization is something that emerges, tuning algorithm parameters.
+The latter is a novel approach in which developers can express the collective behavior declaratively by
+a functional manipulation of a distributed data structure called a \emph{computational field}.
 Aggregate programming is backed by field calculus, a minimal set of instructions necessary to express whatever spatiotemporal computation using computational field manipulation~\cite{DBLP:conf/coordination/AudritoBDV18}. 
-On top of that, different building blocks have been built, to facilitate the high-level library definition.
-Furthermore, crafting a specific blocks category is possible to verify relevant properties such as self-stabilization~\cite{DBLP:conf/coordination/ViroliD14} and eventual consistency~\cite{DBLP:conf/saso/BealVPD16}.
+On top of that, different building blocks have been built to facilitate the high-level libraries definition.
+Furthermore, crafting a specific blocks category, is possible to verify relevant properties such as self-stabilization~\cite{DBLP:conf/coordination/ViroliD14} and eventual consistency~\cite{DBLP:conf/saso/BealVPD16}.
 Practically though, building these basic blocks is not as easy as it sounds. 
-Moreover, it is difficult to guarantee certain quality levels under different network conditions (e.g., different typologies, high node mobility, etc.)
+Moreover, it is challenging to guarantee certain quality levels under different network conditions (e.g., different typologies, high node mobility, etc.)
 
-Outward of top-down declarative approaches, in the context of Multi-Agent Systems, other solutions leverage evolutionary computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and machine learning (in particular Multi-Agent Reinforcement Learning~\cite{DBLP:journals/tcyb/NguyenNN20}) to design distributed programs.
-Using these techniques brings near-optimum solutions to specific tasks.
+Outward of top-down and declarative approaches, in the context of Multi-Agent Systems, other solutions leverage evolutionary computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and machine learning (in particular Multi-Agent Reinforcement Learning~\cite{DBLP:journals/tcyb/NguyenNN20}) to design distributed programs.
+Using these techniques brings near-optimum solutions to specific and complex tasks.
 Unfortunately, though, the main problems of those solutions are the difficulty in scaling up application complexity, the reusability of the behavior found in other circumstances, and the "black-box" nature. 
 %
 Definitely, the Aggregate Computing model is challenging in terms of usual learning problems. Indeed:
@@ -81,7 +80,8 @@ Aggregate Computing currently is supported by different toolkit as ScaFi~\cite{D
 our \emph{trial-and-error} process faster. In this first part, we focused on practical results than foundational ones, hiding details of engineering hybrid systems like these.  
 
 Currently, we applied learning algorithms at the building blocks level; because they have an outstanding effect at the application level but
-at the same time, the behaviors expressed are simple, so easily synthesized via learning.  %%improve settings
+at the same time, the behaviors expressed are simple, so easily synthesized via learning.
+Furthermore, the collective behavior is cooperative and uniform, so we can imagine that each agent performs the same local behavior.  %%improve settings
 %
 Our test application is the distance gradient from a source zone. 
 It is an idiomatic pattern useful for Field-Based calculus for creating different collective behavior ranging from distributed sensing to information diffusion.
@@ -92,8 +92,8 @@ Our goal is to reach a similar performance of the best hand-crafted solution (th
 %
 From related works, we observe a current trend in applying Reinforcement Learning in distributed applications (called Independent Reinforcement Learning~\cite{DBLP:conf/icml/Tan93}, because each agent conceptually learns the policy without knowing other agents).
 Q-Learning~\cite{DBLP:journals/ras/Krose95}, even if it is born for a single agent and a stationary environment, it is applied in different scenarios, also with some improvement (e.g. Hysteretic Q-Learning~\cite{DBLP:conf/iros/MatignonLF07} tries to manage the non-stationary problem nature).
-It is worth noting that no convergence theorem to global optimal policy exists in Multi-Agent settings. 
-Usually, Nash Equilibrium~\cite{DBLP:conf/icml/HuW98} is proved to assess a good Multi-Agent learning algorithm, but it has not the same meaning of a global optimal policy.
+It is worth noting that no convergence theorem to a global optimal policy exists in Multi-Agent settings. 
+Usually, Nash Equilibrium~\cite{DBLP:conf/icml/HuW98} is proved to assess a good Multi-Agent learning algorithm (that, unfortunately, don't correspond to an optimal policy).
 %
 At the moment of writing, neither of the following techniques is well applied with the Aggregate Computing model. They are investigations that led us to understand limitations and opportunities.
 %
