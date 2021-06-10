@@ -43,14 +43,14 @@ In literature, different techniques aim at taming this complexity at the enginee
 Among the many, two solutions that use a top-down approach in expressing global behaviour are TOTA~\cite{DBLP:journals/tosem/MameiZ09} and Aggregate Computing~\cite{DBLP:journals/computer/BealPV15} (both classified under the umbrella of Field-Based Coordination~\cite{DBLP:books/daglib/0015276}).
 The latter is a novel approach in which developers can express the collective behavior declaratively by
 a functional manipulation of a distributed data structure called a \emph{computational field}.
-Aggregate programming is backed by field calculus, a minimal set of instructions necessary to express whatever spatiotemporal computation using computational field manipulation~\cite{DBLP:conf/coordination/AudritoBDV18}. 
+Aggregate programming is backed by field calculus, a minimal set of instructions necessary to express whatever spatio-temporal computation using computational field manipulation~\cite{DBLP:conf/coordination/AudritoBDV18}. 
 On top of that, different building blocks have been built to facilitate the high-level libraries definition.
 Furthermore, crafting a specific blocks category, is possible to verify relevant properties such as self-stabilization~\cite{DBLP:conf/coordination/ViroliD14} and eventual consistency~\cite{DBLP:conf/saso/BealVPD16}.
 Practically though, building these basic blocks is not as easy as it sounds. 
 Moreover, it is challenging to guarantee certain quality levels under different network conditions (e.g., different typologies, high node mobility, etc.)
 
 Outward of top-down and declarative approaches, in the context of Multi-Agent Systems, other solutions leverage evolutionary computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and machine learning (in particular Multi-Agent Reinforcement Learning~\cite{DBLP:journals/tcyb/NguyenNN20}) to design distributed programs.
-Using these techniques brings near-optimum solutions to specific and complex tasks.
+Using these techniques brings near-optimum solutions to specific and complex tasks such as multi players games~\cite{DBLP:journals/nature/VinyalsBCMDCCPE19} and traffic control~\cite{DBLP:journals/aes/JinMK17}.
 Unfortunately, though, the main problems of those solutions are the difficulty in scaling up application complexity, the reusability of the behavior found in other circumstances, and the "black-box" nature. 
 %
 Definitely, the Aggregate Computing model is challenging in terms of usual learning problems. Indeed:
