@@ -11,7 +11,7 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Towards Field-Based Coordination with Learning, Directions, Issues, and Opportunities}
+\title{Research directions for Aggregate Computing with Learning}
 
 \author{\IEEEauthorblockN{PhD Student Gianluca Aguzzi}
 \IEEEauthorblockA{\textit{University of Bologna} \\
@@ -34,37 +34,40 @@ Field Coordination, Aggregate Computing, Multi-Agent Reinforcement Learning
 Humans, in the last century, have filled the earth with computational entities. 
 %
 We find things able to compute in smartphones, fridges, and watches. % improve this period
-Nowadays, these devices aren't isolated; rather, they form a hoard of inter-communicating entities capable of achieving collective tasks. 
+Nowadays, these devices are not isolated; rather, they form a hoard of inter-communicating entities capable of achieving collective tasks. 
 These systems exhibit properties usually observed in complex ones, such as large scale, 
 decentralized control, and the global behavior that emerges from local interactions~\cite{DBLP:conf/huc/Ferscha15}. 
-Swarm of UAVs, a crowd of people, and smart cities are all instances of these kinds of systems, usually called Collective Adaptive Systems.
+Swarm of UAVs, a crowd of people, and smart cities are all instances of this kind of systems, usually called Collective Adaptive Systems.
 %
 In literature, different techniques aim at taming this complexity at the engineering level.
 Among the many, two solutions that use a top-down approach in expressing global behaviour are TOTA~\cite{DBLP:journals/tosem/MameiZ09} and Aggregate Computing~\cite{DBLP:journals/computer/BealPV15} (both classified under the umbrella of Field-Based Coordination~\cite{DBLP:books/daglib/0015276}).
-The latter is a novel approach in which developers can express the collective behavior declaratively by
+The latter represents a novel approach in which developers can express the collective behavior declaratively by
 a functional manipulation of a distributed data structure called a \emph{computational field}.
-Aggregate programming is backed by field calculus, a minimal set of instructions necessary to express whatever spatiotemporal computation using computational field manipulation~\cite{DBLP:conf/coordination/AudritoBDV18}. 
+Aggregate programming is backed by field calculus, a minimal set of instructions necessary to express whatever spatiotemporal computation 
+through the manipulation of computational field~\cite{DBLP:conf/coordination/AudritoBDV18}. 
 On top of that, different building blocks have been built to facilitate the high-level libraries definition.
 Furthermore, crafting a specific blocks category, is possible to verify relevant properties such as self-stabilization~\cite{DBLP:conf/coordination/ViroliD14} and eventual consistency~\cite{DBLP:conf/saso/BealVPD16}.
 Practically though, building these basic blocks is not as easy as it sounds. 
 Moreover, it is challenging to guarantee certain quality levels under different network conditions (e.g., different typologies, high node mobility, etc.)
 
 Outward of top-down and declarative approaches, in the context of Multi-Agent Systems other solutions leverage evolutionary computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and machine learning (in particular Multi-Agent Reinforcement Learning~\cite{DBLP:journals/tcyb/NguyenNN20}) to design distributed programs.
-Using these techniques brings near-optimum solutions to specific and complex tasks such as multiplayer games~\cite{DBLP:journals/nature/VinyalsBCMDCCPE19} and traffic control~\cite{DBLP:journals/aes/JinMK17}.
-Unfortunately, though, the main problems of those solutions are the difficulty in scaling up application complexity, the reusability of the behavior found in other circumstances, and the "black-box" nature. 
+Exploiting these techniques conducts to near-optimum solutions for specific and complex tasks such as multiplayer games~\cite{DBLP:journals/nature/VinyalsBCMDCCPE19} and traffic control~\cite{DBLP:journals/aes/JinMK17}.
+Unfortunately, though, there can be many different problems to overcome with those solutions, such as
+the difficulty in scaling up application complexity, the reusability of the behavior found in other circumstances, and the "black-box" nature. 
 %
 Definitely, the Aggregate Computing model is challenging in terms of usual learning problems. Indeed:
 \begin{enumerate*}[label=(\roman*)]
-\item there isn't any population size guarantee,
+\item there is no population size guarantee,
 \item the neighborhood is potentially highly dynamic,
 \item the system behavior is usually evaluated from the macro-level and not from the micro-level, and
 \item each node has partial information about the system (in typical Dec-POMDP~\cite{DBLP:conf/uai/BernsteinZI00} settings)
 \end{enumerate*}
 \section{Contribution and objectives}
-As far as we know, these two worlds are disjointed even if they speak a similar language. So our first intuition (and our key objective) was merging these approaches to gain benefits from both worlds creating a declarative, 
+As far as we know, these two worlds are disjointed even if they speak a similar language. So our first intuition, and our key objective,
+to merge these approaches to gain benefits from both of them by worlds creating a declarative, 
 composable and self-explanatory behavior combined with online adaptivity and robustness towards environmental changes.
 %
-This has inevitably led us to ask ourselves these questions that guided us in the preliminary research phases: at what level of abstraction (middleware? Application API? Building blocks?) learning can be useful for Aggregate Computing? 
+This has inevitably led us to ask ourselves the following questions that guided us in the preliminary research phases: at what level of abstraction (middleware? Application API? Building blocks?) learning can be useful for Aggregate Computing? 
 In related works, exists a well-known approach that easily matches with Aggregate Computing? There are some benefits?
 %
 \section{Methodology and preliminary results}
@@ -72,73 +75,74 @@ In related works, exists a well-known approach that easily matches with Aggregat
 As the first step, we consider related work in Multi-Agent Systems and Swarm Robotics because, in some cases, problems have similar settings.
 To reach our objective, we iteratively 
 \begin{enumerate*}[label=(\roman*)]
-\item read related works,
+\item read works at the state-of-the-art,
 \item take inspiration from one of them and craft an initial prototype, and
 \item try to generalize the solution from complex problems.
 \end{enumerate*}
-Aggregate Computing currently is supported by different toolkit as ScaFi~\cite{DBLP:conf/ecoop/CasadeiV16} and Protelis~\cite{DBLP:conf/sac/PianiniVB15}, giving us fast prototype capabilities. In this first part, we focused on practical results than foundational ones, hiding details of engineering hybrid systems like these.  
+Aggregate Computing is currently is supported by different toolkit as ScaFi~\cite{DBLP:conf/ecoop/CasadeiV16} and Protelis~\cite{DBLP:conf/sac/PianiniVB15}, giving us fast prototype capabilities.
+In this first part, we were more focused on practical results than foundational ones, hiding details of engineering hybrid systems like these.  
 
-Currently, we applied learning algorithms at the building blocks level; because they have an outstanding effect at the application level but
+Currently, we are applying learning algorithms at the building blocks level; because they have an outstanding effect at the application level but
 at the same time, the behaviors expressed are simple, so easily synthesized via learning.
 Besides, the collective behavior is cooperative and homogeneous namely each agent performs the same local behavior~\cite{DBLP:journals/aamas/PanaitL05}.  %%improve settings
 %
 Our test application is the distance gradient from a source zone. 
-It is an idiomatic pattern useful for Field-Based calculus for creating different collective behavior ranging from distributed sensing to information diffusion.
-Furthermore, it is used to build other complex patterns like Self-organising coordination regions~\cite{DBLP:conf/coordination/CasadeiPVN19}.
+It is an idiomatic pattern useful for Field-Based calculus for establishing different collective behavior ranging from distributed sensing to information diffusion.
+Moreover, it is used to build other complex patterns like Self-organising coordination regions~\cite{DBLP:conf/coordination/CasadeiPVN19}.
 %
 Naive gradient implementations suffer from slow-rising, so different hand-crafted solutions have been built, such as Flex, BIS, and ULT~\cite{DBLP:conf/saso/AudritoCDV17}.
 Our goal is to reach a similar (or even better) performance of the best hand-crafted solution (the ULT gradient).
 
 From related works, we observe a current trend in applying standard Reinforcement Learning algoritms in distributed applications.
-Q-Learning~\cite{DBLP:journals/ras/Krose95}, even if it is born for a single agent and a stationary environment, it is applied in different scenarios~\cite{DBLP:conf/mass/ShahK07}, also with some improvement(e.g. Hysteretic Q-Learning~\cite{DBLP:conf/iros/MatignonLF07} tries to manage the non-stationary problem nature).
+Q-Learning~\cite{DBLP:journals/ras/Krose95}, even if it is born for a single agent and a stationary environment, it is applied in different scenarios~\cite{DBLP:conf/mass/ShahK07}, also with some improvements (e.g. Hysteretic Q-Learning~\cite{DBLP:conf/iros/MatignonLF07} tries to manage the non-stationary problem nature).
 It is worth noting that no convergence theorem to a global optimal policy exists in Multi-Agent settings. 
 Usually, Nash Equilibrium~\cite{DBLP:conf/icml/HuW98} is proven to assess a good Multi-Agent learning algorithm, but unfortunately not always is associated with a global optimal policy~\cite{DBLP:conf/uai/PeshkinKMK00}.
 %
-At the moment of writing, neither of the following techniques is well applied with the Aggregate Computing model. They are investigations that led us to understand limitations and opportunities.
+At the moment of writing, none of the following techniques is well applied with the Aggregate Computing model. They are investigations that led us to understand limitations and opportunities.
 %
-As the first attempt, we try to encode our gradient problem in terms of a learning problem and then using Q-Learning (or also the Monte Carlo Learning~\cite{DBLP:conf/nips/Thrun99}) to solve it.
+As the first attempt, we try to encode our gradient problem in terms of a learning problem and then use Q-Learning (or also the Monte Carlo Learning~\cite{DBLP:conf/nips/Thrun99}) to solve it.
 These experiments have shed light on some difficulties for us, which are: encoding local state giving neighbors values (a problem in finding a good representation), finding a right reward function that expresses the utility individuals
 regarding the collective result (the \emph{credit assignment} problem), encode right actions, highly non-stationary behavior. 
 %
 In particular, the gradient problem is hard to encode as a learning task due to the continuous state and action space.
 So, we also consider using Neural Network to perform regression tasks using Backprograpagation algorithms to
 improve the model performance. 
-Sadly, this method doesn't scale in complex problem: even with a global system observation, is difficult to know the correct result at a certain point in time, so 
+Sadly, this method doesn't scale in complex problems: even with a global system observation, it is arduous to know the correct result at a certain point in time, so 
 we cannot give the right baseline for our learning algorithms.
 %
 Finally, observing evolutionary robotics and avoiding loss function definition, we try some basic evolutionary methods, such as Neuroevolution of Augmenting Topologies Alternatives~\cite{DBLP:journals/ec/StanleyM02}.
-The benefits of evolutionary algorithms are limited constrained imposed. Indeed the encoding is straightforward, and the fitness function is simpler to define than the reward function.
+The benefits of evolutionary algorithms are the limited constraints imposed. Indeed, the encoding is straightforward, and the fitness function is simpler to define than the reward function.
 The problems encountered with this approach are the slowness and the difficulty in generalization.
 %
 \section{Future work and research plan}
 One of the problems encountered is the difficulty of encoding the state space in a fixed and dense dimension. Indeed, the overall graph structure is dynamic, so each node might perceive different neighbors at each time step.
-In literature, these problems are referred to \emph{node embedding}. Different techniques aim at learning the embedding from a specific graph. One of them is Graph Neural Network~\cite{DBLP:journals/tnn/ScarselliGTHM09}.
+In literature, these problems are referred to as \emph{node embedding}. Different techniques aim at learning the embedding from a specific graph. One of them is Graph Neural Network~\cite{DBLP:journals/tnn/ScarselliGTHM09}.
 Even if the configuration is quite different from our model, we can take inspiration from this branch of Neural Network to possibly improve our learning processes.
 
 Deep Reinforcement Learning, thanks to the famous work of Atari games~\cite{DBLP:journals/corr/HosuR16}, has gained interest in the last few years. Novel works~\cite{DBLP:journals/aamas/Hernandez-LealK19} investigate the application of deep neural networks model in Multi-Agents context
-to solve well-known problems (non-stationary, partially observability, large state space, etc.). Currently, due to the simple nature of building blocks, we do not apply these techniques. But, if we try to apply learning processes even if
+to solve well-known problems (non-stationary, partially observability, large state space, etc.). Currently, due to the simple nature of building blocks, we do not apply these techniques. But, if we want to apply learning processes even if
 at application layers, these techniques might be necessary.
 
 Most works in Multi-Agent Systems do not consider the possible enormous large scale of real applications, even if some exceptions exists~\cite{nguyen2018reinforcement}. With Aggregate Computing we write applications \emph{scale free}, so we need to use/create learning algorithms and models able to work
 regardless of the system scale, that currently isn't considered in depth.
 
-Beyond building block learning, Aggregate Computing needs a platform in which programs will be executed. 
-Here, designers need to define aspects that the paradigm doesn't include, 
+Beyond building blocks learning, Aggregate Computing needs a platform upon which to execute programs. 
+Here, designers need to define aspects that the paradigm does not include, 
 such as evaluation frequency, program displacement, and trust. 
-These themes are tackled in part in different works~\cite{DBLP:journals/scp/CasadeiAV18, DBLP:journals/fi/CasadeiPPVW20, DBLP:journals/corr/abs-2012-13806}, 
-but online learning is usually not considered and here could be crucial, 
-avoiding complex parameters tuning and improving the system robustness.
-Regarding evaluation frequency, related work already applied Reinforcement Learning. 
+These themes are partially tackled in different works~\cite{DBLP:journals/scp/CasadeiAV18, DBLP:journals/fi/CasadeiPPVW20, DBLP:journals/corr/abs-2012-13806}, 
+but online learning is usually not considered even if here could be crucial, 
+since it would avoid complex parameters tuning and improving the system robustness.
+Regarding the evaluation frequency, related works already applied Reinforcement Learning. 
 Indeed, following an ad-hoc crafted reward function, we might bring the system to reduce energy consumption even in our solution.
 
-In conclusion, we try to define a research path that brings us in a complete integration between the Field-Based Coordination and Learning models. Even if is quite opaque, the main
-steps that we expected to follow are:
+In conclusion, we are trying to define a research path that brings us in a complete integration between the Field-Based Coordination and Learning models. Even if it is quite opaque, the main
+steps that we expect to follow are:
 % research plan
 \begin{itemize}
     \item 1st year: (4 months remained): concluding experiments with basic building blocks, create a clear test base to compare the standard application with our new approach. Deep learning models, Multi-agent Reinforcement Learning, and Graph Neural networks ideas might be integrated to reach good solutions.
-    \item 2nd year: learning building blocks -- using the renewed experience -- that currently have problems in expressing with Aggregate Computing (such as S, sparse choice, used to create a distributed leader election),
-    define guidelines in merging these two approaches (from an engineering point of view), creating a sort of hybrid programming methodology.
-    \item 3rd year: extends learning tasks to the framework level, closing the reality gap, making the deployment in real application efficient. Understand implications of this new way of programming, inserting learning ideas at the Aggregate Computing model level. 
+    \item 2nd year: learning building blocks -- using the renewed experience -- that currently have problems in expressing with Aggregate Computing (such as S, sparse choice, used to create a distributed leader election).
+    Defining guidelines in merging these two approaches (from an engineering point of view). Creating a sort of hybrid programming methodology.
+    \item 3rd year: extending learning tasks to the framework level, closing the reality gap, making the deployment in real application efficient. Understanding implications of this new way of programming, inserting learning ideas at the Aggregate Computing model level. 
 \end{itemize}
 
 \bibliographystyle{ieeetr}
