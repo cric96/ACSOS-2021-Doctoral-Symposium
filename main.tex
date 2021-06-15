@@ -103,7 +103,7 @@ At the moment of writing, none of the following novel methods brings us to good 
 %
 As the first attempt, we try to encode our gradient problem in terms of a learning problem and then use Q-Learning (or also the Monte Carlo Learning~\cite{DBLP:conf/nips/Thrun99}) to solve it.
 These experiments have shed light on some difficulties for us, which are: encoding local state giving neighbours values (a problem in finding a good representation), finding a right reward function that expresses the utility individuals
-regarding the collective result, encode right actions, highly non-stationary behavior. 
+regarding the collective result, encode right actions, highly non-stationary behaviour. 
 %
 In particular, the gradient problem is hard to encode as a learning task due to the continuous state and action space.
 So, we also consider using Neural Network to perform regression tasks using Backprograpagation algorithms to
