@@ -17,11 +17,11 @@
 \IEEEauthorblockA{\textit{Alma Mater Studiorum - Università di Bologna} \\
 Cesena, Italy \\
 gianluca.aguzzi@unibo.it}
-\and
-\IEEEauthorblockN{Supervisor Mirko Viroli}
-\IEEEauthorblockA{\textit{Alma Mater Studiorum - Università di Bologna} \\
-Cesena, Italy \\
-mirko.viroli@unibo.it}
+% \and
+% \IEEEauthorblockN{Supervisor Mirko Viroli}
+% \IEEEauthorblockA{\textit{Alma Mater Studiorum - Università di Bologna} \\
+% Cesena, Italy \\
+% mirko.viroli@unibo.it}
 }
 
 \maketitle
@@ -59,13 +59,13 @@ Outward of top-down and declarative approaches, in the context of Multi-Agent Sy
 Exploiting these techniques conducts to near-optimum solutions for specific and complex tasks such as multiplayer games~\cite{DBLP:journals/nature/VinyalsBCMDCCPE19} and traffic control~\cite{DBLP:journals/aes/JinMK17}.
 Unfortunately, though, there can be many different problems to overcome with those solutions, such as
 the difficulty in scaling up application complexity, the reusability of the behaviour found in other circumstances, and the "black-box" nature. 
-%
+%1
 Definitely, the AC model is challenging in terms of usual learning problems. Indeed:
 \begin{enumerate*}[label=(\roman*)]
 \item there is no population size guarantee,
 \item the neighbourhood is potentially highly dynamic,
 \item the system behaviour is usually evaluated from the macro-level and not from the micro-level, and
-\item each node has partial information about the system (in typical Dec-POMDP~\cite{DBLP:conf/uai/BernsteinZI00} settings)
+\item each node has partial information about the system (in typical Dec-POMDP~\cite{DBLP:conf/uai/BernsteinZI00} settings).
 \end{enumerate*}
 \section{Contribution and objectives}
 As far as we know, these two viewpoints are disjointed even if they speak a similar language. So our first intuition, and our key objective,
@@ -73,7 +73,7 @@ was to merge them to gain benefits from both approaches. This fusion creates dec
 composable and self-explanatory language combined with online adaptivity and robustness towards environmental changes.
 %
 This has inevitably led to the following questions that guided us in the preliminary research phases: at what level of abstraction (middleware? Application API? Building blocks?) learning can be useful for AC? 
-In state-of-art related techniques, how can they handle these extremely non-deterministic and complex systems?  
+In state-of-the-art related techniques, how can they handle these extremely non-deterministic and complex systems?  
 %
 \section{Methodology and preliminary results}
 %
@@ -84,7 +84,7 @@ To reach our objective, we iteratively
 \item take inspiration from one of them and craft an initial prototype, and
 \item try to generalise the solution from complex problems.
 \end{enumerate*}
-AC is currently is supported by different toolkit as ScaFi~\cite{DBLP:conf/ecoop/CasadeiV16} and Protelis~\cite{DBLP:conf/sac/PianiniVB15}, giving us fast prototype capabilities.
+AC currently is supported by different toolkits as ScaFi~\cite{DBLP:conf/ecoop/CasadeiV16} and Protelis~\cite{DBLP:conf/sac/PianiniVB15}, giving us fast prototype capabilities.
 In this first part, we were more focused on practical results than foundational ones, hiding details of engineering hybrid systems like these.  
 
 Currently, we are applying learning algorithms at the building blocks level; because they have an outstanding effect at the application level but
@@ -129,7 +129,7 @@ to solve well-known problems (non-stationary, partially observability, large sta
 at application layers, these techniques might be necessary.
 
 Most works in Multi-Agent Systems do not consider the possible enormous large scale of real applications, even if some exceptions exists~\cite{nguyen2018reinforcement}. With AC we write applications \emph{scale free}, so we need to use/create learning algorithms and models able to work
-regardless of the system scale, that currently isn't considered in depth.
+regardless of the system scale, that currently is not considered in depth.
 
 Beyond building blocks learning, AC needs a platform upon which to execute programs. 
 Here, designers need to define aspects that the paradigm does not include, 
@@ -149,7 +149,9 @@ steps that we expect to follow are:
     Defining guidelines in merging these two approaches (from an engineering point of view). Creating a sort of hybrid programming methodology.
     \item 3rd year: extending learning tasks to the framework level, closing the reality gap, making the deployment in real application efficient. Understanding implications of this new way of programming, inserting learning ideas at the AC model level. 
 \end{itemize}
-
+\section*{Acknowledgement}
+%% improve
+Special thanks to my PhD Supervisor Viroli Mirko.
 \bibliographystyle{ieeetr}
 \bibliography{mybibfile}
 \end{document}
