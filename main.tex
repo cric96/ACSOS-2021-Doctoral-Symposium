@@ -88,6 +88,12 @@ AC currently is supported by different toolkits as ScaFi~\cite{DBLP:conf/ecoop/C
 %
 In our workflow, we evaluate our result leveraging simulations, because the cost of setting up a large scale system.
 In the AC literature, the Alchemist~\cite{alchemist-jos2013} simulator is often choosed thanks to it's adaptbility of different application kind, ranging from crowd to smart cities.
+The criteria used to evaluate a solution are:
+\begin{enumerate*}[label=(\roman*)]
+    \item Correctness: is the solution reach, at some point in time, the right value?
+    \item Stabilisation time: how much time need the solution to reach a stable time?
+    \item Robustness in network topologies: is the solution robust in network changes (failure, node movement)?
+\end{enumerate*}
 %
 In this first part, we were more focused on practical results than foundational ones, hiding details of engineering hybrid systems like these.  
 %
