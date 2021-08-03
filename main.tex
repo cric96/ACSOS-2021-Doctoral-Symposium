@@ -26,7 +26,7 @@ gianluca.aguzzi@unibo.it}
 
 \maketitle
 \begin{abstract}
-    Collective adaptive systems are challenging from the engineering perspective. Different techniques aim at taming those challenges, either using declarative approaches or using black-block approaches (e.g. Machine Learning, Evolutionary Algorithms, etc.).
+    Collective adaptive systems are challenging from the engineering perspective. Different techniques aim at taming those challenges, either using declarative or black-block approaches (e.g. Machine Learning, Evolutionary Algorithms, etc.).
     Among the many declarative approaches, Aggregate Computing is a novel technique by which developers can express collective system behaviour from a global perspective using a compositional and functional programming technique.
     Over the years, this approach has been applied in different scenarios, ranging from smart cities to a crowd of people. Despite its promising capabilities, sometimes describing aggregate behaviour is tricky and tedious, so we aim at merging Aggregate Computing with black-box techniques to understand the implications and the benefits of this combination.
 \end{abstract}
@@ -49,13 +49,13 @@ The latter represents a novel approach in which developers can express the colle
 a functional manipulation of a distributed data structure called a \emph{computational field}.
 
 AC is backed by field calculus, a minimal set of instructions necessary to express whatever spatiotemporal computation 
-through the manipulation of computational field~\cite{DBLP:conf/coordination/AudritoBDV18}. 
+through the manipulation of computational fields~\cite{DBLP:conf/coordination/AudritoBDV18}. 
 On top of that, different building blocks have been built to facilitate the high-level libraries definition.
 Furthermore, crafting a specific blocks category, is possible to verify relevant properties such as self-stabilization~\cite{DBLP:conf/coordination/ViroliD14} and eventual consistency~\cite{DBLP:conf/saso/BealVPD16}.
 Practically though, building these basic blocks is not as easy as it sounds. 
 Moreover, it is challenging to guarantee certain quality levels under different network conditions (e.g., different typologies, high node mobility, etc.)
 
-Outward of top-down and declarative approaches, in the context of Multi-Agent Systems, other solutions leverage evolutionary computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and machine learning (in particular Reinforcement Learning (RL)~\cite{DBLP:journals/access/NaeemRC2} and Multi-Agent RL~\cite{DBLP:journals/tcyb/NguyenNN20}) to design distributed programs.
+Outward of top-down and declarative approaches, in the context of Multi-Agent Systems, other solutions leverage evolutionary computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and machine learning (in particular Reinforcement Learning (RL)~\cite{DBLP:journals/access/NaeemRC20} and Multi-Agent RL~\cite{DBLP:journals/tcyb/NguyenNN20}) to design distributed programs.
 Exploiting these techniques conducts to near-optimum solutions for specific and complex tasks such as multiplayer games~\cite{DBLP:journals/nature/VinyalsBCMDCCPE19} and traffic control~\cite{DBLP:journals/aes/JinMK17}.
 Unfortunately, though, there can be many different problems to overcome with those solutions, such as
 the difficulty in scaling up application complexity, the reusability of the behaviour found in other circumstances, and the "black-box" nature. 
@@ -91,13 +91,16 @@ Currently, we are applying learning algorithms at the building blocks level; bec
 at the same time, the behaviours expressed are simple, so easily synthesised via learning.
 Besides, the collective behaviour is cooperative and homogeneous, namely each agent performs the same local behavior~\cite{DBLP:journals/aamas/PanaitL05}.  %%improve settings
 %
-Our test application is the distance gradient from a source zone. 
+Our test application is the distance gradient from a source zone. %% TODO improve here.
 It is an idiomatic pattern useful for Field-Based calculus for establishing different collective behaviour ranging from distributed sensing to information diffusion.
 %Moreover, it is used to build other complex patterns like Self-organising coordination regions~\cite{DBLP:conf/coordination/CasadeiPVN19}.
 %
 Naive gradient implementations suffer from slow-rising, so different hand-crafted solutions have been built, such as Flex, BIS, and ULT~\cite{DBLP:conf/saso/AudritoCDV17}.
 Our goal is to reach a similar (or even better) performance of the best hand-crafted solution (the ULT gradient).
-
+%
+In our workflow, we evaluate our result leveraging simulations, because the cost of setting up a large scale system.
+In the AC literature, the Alchemist simulator is often choosed thanks to it's adaptbility of different application kind, ranging from crowd to smart cities.
+% 
 From related works, we observe a current trend in applying standard RL algorithms in distributed applications.
 Q-Learning~\cite{DBLP:journals/ras/Krose95}, even if it is born for a single agent and a stationary environment, it is applied in different scenarios~\cite{DBLP:conf/mass/ShahK07}, also with some improvements (e.g. Hysteretic Q-Learning~\cite{DBLP:conf/iros/MatignonLF07} tries to manage the non-stationary problem nature).
 %It is worth noting that no convergence theorem to a global optimal policy exists in Multi-Agent settings. 
