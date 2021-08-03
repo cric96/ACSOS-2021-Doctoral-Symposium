@@ -85,8 +85,12 @@ To reach our objective, we iteratively
 \item try to generalise the solution from complex problems.
 \end{enumerate*}
 AC currently is supported by different toolkits as ScaFi~\cite{DBLP:conf/ecoop/CasadeiV16} and Protelis~\cite{DBLP:conf/sac/PianiniVB15}, giving us fast prototype capabilities.
+%
+In our workflow, we evaluate our result leveraging simulations, because the cost of setting up a large scale system.
+In the AC literature, the Alchemist~\cite{alchemist-jos2013} simulator is often choosed thanks to it's adaptbility of different application kind, ranging from crowd to smart cities.
+%
 In this first part, we were more focused on practical results than foundational ones, hiding details of engineering hybrid systems like these.  
-
+%
 Currently, we are applying learning algorithms at the building blocks level; because they have an outstanding effect at the application level but
 at the same time, the behaviours expressed are simple, so easily synthesised via learning.
 Besides, the collective behaviour is cooperative and homogeneous, namely each agent performs the same local behavior~\cite{DBLP:journals/aamas/PanaitL05}.  %%improve settings
@@ -97,11 +101,8 @@ It is an idiomatic pattern useful for Field-Based calculus for establishing diff
 %
 Naive gradient implementations suffer from slow-rising, so different hand-crafted solutions have been built, such as Flex, BIS, and ULT~\cite{DBLP:conf/saso/AudritoCDV17}.
 Our goal is to reach a similar (or even better) performance of the best hand-crafted solution (the ULT gradient).
-%
-In our workflow, we evaluate our result leveraging simulations, because the cost of setting up a large scale system.
-In the AC literature, the Alchemist simulator is often choosed thanks to it's adaptbility of different application kind, ranging from crowd to smart cities.
 % 
-From related works, we observe a current trend in applying standard RL algorithms in distributed applications.
+From related works, we observe a current trend in applying standard RL algorithms in CAS -- In particular in Collective Self-Adaptive Systems (CSAS)~\cite{DAngelo2019}.
 Q-Learning~\cite{DBLP:journals/ras/Krose95}, even if it is born for a single agent and a stationary environment, it is applied in different scenarios~\cite{DBLP:conf/mass/ShahK07}, also with some improvements (e.g. Hysteretic Q-Learning~\cite{DBLP:conf/iros/MatignonLF07} tries to manage the non-stationary problem nature).
 %It is worth noting that no convergence theorem to a global optimal policy exists in Multi-Agent settings. 
 %Usually, Nash Equilibrium~\cite{DBLP:conf/icml/HuW98} is proven to assess a good Multi-Agent learning algorithm, but unfortunately not always is associated with a global optimal policy~\cite{DBLP:conf/uai/PeshkinKMK00}.
