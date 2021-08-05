@@ -147,7 +147,7 @@ Naive gradient implementations suffer from slow-rising, so different handcrafted
 Our goal is to reach a similar (or even better) performance of the best solution handcrafted (the ULT gradient).
 
 At the moment of writing, none of the following novel methods brings us to good results. They are investigations that will hopefully yield results in the future and currently led us to understand limitations and opportunities.
-%
+
 From related works~\cite{DAngelo2019}, we observe a current trend in applying standard RL algorithms in CAS -- In particular, in CSAS.
 %
 %Q-Learning~\cite{DBLP:journals/ras/Krose95}, even if it is born for a single agent and a stationary environment, it is applied in different scenarios~\cite{DBLP:conf/mass/ShahK07}, also with some improvements (e.g. Hysteretic Q-Learning~\cite{DBLP:conf/iros/MatignonLF07} tries to manage the non-stationary problem nature).
@@ -163,7 +163,7 @@ regarding the collective result, encode right actions, highly non-stationary beh
 
 So, we also consider using Supervised Learning encoding the problem as a regression one.
 % 
-Even if it is a promising idea, currently, this method doesn't scale in complex problems: even with a global system observation, it is arduous to know the correct result at a certain point in time, so 
+Even if it is a promising idea, currently, this method doesn't scale in complex problems: also with a global system observation, it is arduous to know the correct result at a certain point in time, so 
 we cannot give the right baseline for our learning algorithms.
 
 Finally, observing evolutionary robotics and avoiding loss function definition, we try some basic evolutionary methods, such as NEAT~\cite{DBLP:journals/ec/StanleyM02}.
@@ -184,7 +184,7 @@ In literature, these problems are referred to as \emph{node embedding}.
 %One of them is Graph Neural Network (GNN)~\cite{DBLP:journals/tnn/ScarselliGTHM09}.
 Novel works use Graph Neural Network (GNN)~\cite{DBLP:journals/tnn/ScarselliGTHM09} to learn the right embedding.
 %
-Even if the configuration is quite different from our model, we can take inspiration there to possibly improve our learning model.
+Even if the configuration is quite different from our model, we can take inspiration there to possibly improve our learning model as done in~\cite{DBLP:conf/nips/SukhbaatarSF16}.
 
 Deep RL, thanks to the famous work of Atari games~\cite{DBLP:journals/corr/HosuR16}, has gained interest in the last few years. 
 %
@@ -200,7 +200,11 @@ Beyond building blocks learning, AC needs a platform upon which to execute progr
 %
 Here, designers need to define aspects that the paradigm does not include, such as evaluation frequency, program displacement, and trust.
 % 
-These themes are partially tackled in different works~\cite{DBLP:journals/scp/CasadeiAV18, DBLP:journals/fi/CasadeiPPVW20, DBLP:journals/corr/abs-2012-13806}, but online learning is usually not considered even if here could be crucial, since it would avoid complex parameters tuning and improving the system robustness.
+These themes are partially tackled in different works~\cite{DBLP:journals/scp/CasadeiAV18, DBLP:journals/fi/CasadeiPPVW20, DBLP:journals/corr/abs-2012-13806}, but online learning is usually not considered
+%even if here could be crucial, 
+since it would 
+%avoid complex parameters tuning and 
+improve the system robustness.
 %
 %Regarding the evaluation frequency, related works already applied RL. 
 %Indeed, following an ad-hoc crafted reward function, we might bring the system to reduce energy consumption even in our solution.
