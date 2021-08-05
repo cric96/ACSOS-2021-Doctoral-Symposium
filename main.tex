@@ -43,18 +43,17 @@ Field Coordination, Aggregate Computing, Machine Learning, Multi-Agent Reinforce
 \section{Motivation and challenges}
 Humans, in the last century, have filled the earth with computational entities. 
 %
-We find things able to compute in smartphones, fridges, and watches. % improve this period
+%We find things able to compute in smartphones, fridges, and watches. % improve this period
 %
 Nowadays, these devices are not isolated; rather, they form a hoard of inter-communicating entities capable of achieving collective tasks.
 % 
-These systems exhibit properties usually observed in complex ones, such as large scale, 
-decentralised control, and the global behaviour that emerges from local interactions~\cite{DBLP:conf/huc/Ferscha15}.
+These systems exhibit properties usually observed in complex ones, such as large scale, decentralised control, and the global behaviour that emerges from local interactions~\cite{DBLP:conf/huc/Ferscha15}.
 % 
 Swarm of UAVs, a crowd of people, and smart cities are all instances of this kind of system, usually called Collective Adaptive Systems (CASs).
 
 In literature, different techniques aim at taming this complexity at the engineering level.
 %
-Among the many, a solution that uses a top-down approach in expressing global behaviour is Aggregate Computing (AC)~\cite{DBLP:journals/computer/BealPV15} (classified under the umbrella of Field-Based Coordination~\cite{DBLP:books/daglib/0015276}).
+Among the many, a solution that uses a top-down approach in expressing global behaviours is Aggregate Computing (AC)~\cite{DBLP:journals/computer/BealPV15} --- classified under the umbrella of Field-Based Coordination~\cite{DBLP:books/daglib/0015276}).
 %
 AC represents a novel approach in which developers can express the collective behaviour declaratively by a functional manipulation of a distributed data structure called a \emph{computational field}.
 
@@ -66,9 +65,9 @@ Furthermore, crafting a specific blocks category, is possible to verify relevant
 %
 Practically though, building these basic blocks is not as easy as it sounds. 
 %
-Moreover, it is challenging to guarantee certain quality levels under different network conditions (e.g., different typologies, high node mobility, etc.)
+Moreover, it is challenging to guarantee certain quality levels under different network conditions (e.g., different topologies, high node mobility, etc.)
 
-Outward of top-down and declarative approaches, in the context of Collective Self-Adaptive System (CSAS)~\cite{DBLP:conf/metacognition/Mitchell05} (i.e. CAS where agents might have learning capabilities), other solutions leverage evolutionary computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and machine learning (in particular Reinforcement Learning (RL)~\cite{DBLP:journals/access/NaeemRC20} and Multi-Agent RL~\cite{DBLP:journals/tcyb/NguyenNN20}) to design distributed programs.
+Outward of top-down and declarative approaches, in the context of Collective Self-Adaptive System (CSAS)~\cite{DBLP:conf/metacognition/Mitchell05} (i.e. CAS where agents might have learning capabilities), other solutions leverage evolutionary computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and machine learning (in particular Reinforcement Learning (RL)~\cite{DBLP:journals/access/NaeemRC20} and Multi-Agent RL~\cite{DBLP:journals/tcyb/NguyenNN20}) to design multi-agents programs.
 %
 Exploiting these techniques conducts to near-optimum solutions for specific and complex tasks such as multiplayer games~\cite{DBLP:journals/nature/VinyalsBCMDCCPE19, DBLP:journals/taas/HaoLM15}, traffic control~\cite{DBLP:journals/aes/JinMK17, DBLP:conf/icac/SteinTRH16} and robotics~\cite{DBLP:journals/taas/KraemerB14}.
 %
@@ -86,19 +85,22 @@ Definitely, the AC model is challenging in terms of usual learning problems. Ind
 \item the system behaviour is usually evaluated from the macro-level and not from the micro-level, and
 \item each node has partial information about the system (in typical Dec-POMDP~\cite{DBLP:conf/uai/BernsteinZI00} settings).
 \end{enumerate*}
+%% TO IMPROVE
+Summarizing and leveraging the framework in~\cite{DAngelo2019}, AC has limited neighborhood knowledge, restricted autonomy -- i.e., agents execute a program shared by another agent and have altruistic behavior -- they try to act to achieve the correct global state.
 \section{Contribution and objectives}
 %As far as we know, AC and black-box techniques are disjointed in term of their application. So our first intuition, and our key objective,
 %was to merge them to gain benefits from both approaches.
-As far as we know, AC is never extended to CSAS, so our first intuition, and our key objective, is to extend the AC framework with some learning capabilities.
+%As far as we know, AC is never extended to Machine Learning, so our first intuition, and our key objective, is to extend the AC framework with some learning capabilities.
+From what we know, aggregate computing -- and in general field coordination -- has never been integrated with machine learning skills, so our intuition has been to set up work in the direction of that integration.
 %
-This fusion might create a declarative,
-composable and self-explanatory language combined with online adaptivity and robustness towards environmental changes.
+This work might create a declarative, composable and self-explanatory language combined with online adaptivity and robustness towards environmental changes.
 %
 This has inevitably led to the following questions that guided us in the preliminary research phases: 
 at what level of abstraction (middleware? Application API? Building blocks?) learning can be useful for AC?
 %
 In state-of-the-art related techniques, how can they handle these non-deterministic and complex systems?
 %
+What are the common properties that AC has w.r.t other solutions?
 \section{Methodology and preliminary results}
 %
 As the first step, we consider related work in Multi-Agent Systems, Collective Self-Adaptive Systems, and Swarm Robotics because they have similar settings of our model.
@@ -122,7 +124,7 @@ The criteria used to evaluate a solution are:
     \item Stabilisation time: how much time need the solution to reach a stable time?
     \item Robustness in network topologies: is the solution robust in network changes (failure, node movement)?
 \end{enumerate*}
-%
+
 In this first part, we were more focused on practical results than foundational ones, hiding details of engineering hybrid systems like these.  
 %
 Currently, we are applying learning algorithms at the building blocks level; because they affect the application level, but at the same time, the behaviours expressed are simple, so easily synthesised via learning.
@@ -130,6 +132,10 @@ Currently, we are applying learning algorithms at the building blocks level; bec
 Then, here we usually know the correct final state of the field, so we can extract a ground truth for ML algorithms.
 %
 Besides, the collective behaviour is cooperative and homogeneous, namely each agent performs the same local behavior~\cite{DBLP:journals/aamas/PanaitL05}.  %%improve settings
+%
+So, we decide to poses the problems as a Homogenoues Team Learning~\cite{DBLP:journals/aamas/PanaitL05},namely we learn the good policy in a centralised manner and then all agent will performn it in order to reach our goal. 
+%
+Furthermore, we reduce the learning capability at the design time i.e. before the model is deployment within the aggregate systems.
 
 Our test application is the distance gradient from a source zone. %% TODO improve here.
 %
@@ -142,7 +148,7 @@ Our goal is to reach a similar (or even better) performance of the best solution
 
 At the moment of writing, none of the following novel methods brings us to good results. They are investigations that will hopefully yield results in the future and currently led us to understand limitations and opportunities.
 %
-From related works, we observe a current trend in applying standard RL algorithms in CAS -- In particular, in (CSAS)~\cite{DAngelo2019}.
+From related works~\cite{DAngelo2019}, we observe a current trend in applying standard RL algorithms in CAS -- In particular, in CSAS.
 %
 %Q-Learning~\cite{DBLP:journals/ras/Krose95}, even if it is born for a single agent and a stationary environment, it is applied in different scenarios~\cite{DBLP:conf/mass/ShahK07}, also with some improvements (e.g. Hysteretic Q-Learning~\cite{DBLP:conf/iros/MatignonLF07} tries to manage the non-stationary problem nature).
 %It is worth noting that no convergence theorem to a global optimal policy exists in Multi-Agent settings. 
@@ -153,9 +159,9 @@ As the first attempt, we try to encode our gradient problem in terms of a RL pro
 These experiments have shed light on some difficulties for us, which are: encoding local state giving neighbours values (the problem in finding a good representation), finding a right reward function that expresses the utility individuals
 regarding the collective result, encode right actions, highly non-stationary behaviour. 
 %
-In particular, the gradient problem is hard to encode as a learning task due to the continuous state and action space.
+%In particular, the gradient problem is hard to encode as a learning task due to the continuous state and action space.
 
-So, we also consider using Neural Network to perform regression tasks using Backprograpagation algorithms to improve the model performance.
+So, we also consider using Supervised Learning encoding the problem as a regression one.
 % 
 Even if it is a promising idea, currently, this method doesn't scale in complex problems: even with a global system observation, it is arduous to know the correct result at a certain point in time, so 
 we cannot give the right baseline for our learning algorithms.
@@ -167,22 +173,29 @@ The benefits of evolutionary algorithms are the limited constraints imposed. Ind
 The problems encountered with this approach are the slowness and the difficulty in generalisation.
 %
 \section{Future work and research plan}
-One of the problems encountered is the difficulty of encoding the state space in a fixed and dense dimension. Indeed, the overall graph structure is dynamic, so each node might perceive different neighbours at each time step.
+One of the problems encountered is the difficulty of encoding the state space in a fixed and dense dimension. 
 %
-In literature, these problems are referred to as \emph{node embedding}. Different techniques aim at learning the embedding from a specific graph. One of them is Graph Neural Network (GNN)~\cite{DBLP:journals/tnn/ScarselliGTHM09}.
+%Indeed, the overall graph structure is dynamic, so each node might perceive different neighbours at each time step.
 %
-Even if the configuration is quite different from our model, we can take inspiration from this branch of Neural Network to possibly improve our learning model.
+In literature, these problems are referred to as \emph{node embedding}. 
 %
+%Different techniques aim at learning the embedding from a specific graph. 
+%
+%One of them is Graph Neural Network (GNN)~\cite{DBLP:journals/tnn/ScarselliGTHM09}.
+Novel works use Graph Neural Network (GNN)~\cite{DBLP:journals/tnn/ScarselliGTHM09} to learn the right embedding.
+%
+Even if the configuration is quite different from our model, we can take inspiration there to possibly improve our learning model.
+
 Deep RL, thanks to the famous work of Atari games~\cite{DBLP:journals/corr/HosuR16}, has gained interest in the last few years. 
 %
 Novel works~\cite{DBLP:journals/aamas/Hernandez-LealK19} investigate the application of deep neural networks model in Multi-Agents context to solve well-known problems (non-stationary, partially observability, large state space, etc.). 
 %
-Currently, due to the simple nature of building blocks, we do not apply these techniques. But, if we want to apply learning processes even if at application layers, these techniques might be necessary.
+Currently, due to the simple nature of building blocks, we do not apply these techniques. But, if we want to apply learning processes with more advanced block (cf. leader election), these techniques might be necessary.
 %
 %Most works in Multi-Agent Systems do not consider the possible enormous large scale of real applications, even if some exceptions exists~\cite{nguyen2018reinforcement}. 
 %
 %With AC we write applications \emph{scale free}, so we need to use/create learning algorithms and models able to work regardless of the system scale, that currently is not considered in depth.
-%
+
 Beyond building blocks learning, AC needs a platform upon which to execute programs. 
 %
 Here, designers need to define aspects that the paradigm does not include, such as evaluation frequency, program displacement, and trust.
@@ -192,17 +205,23 @@ These themes are partially tackled in different works~\cite{DBLP:journals/scp/Ca
 %Regarding the evaluation frequency, related works already applied RL. 
 %Indeed, following an ad-hoc crafted reward function, we might bring the system to reduce energy consumption even in our solution.
 
-In conclusion, we are trying to define a research path that brings us in a complete integration between the AC and learning algorithm. Even if it is quite opaque, the main steps that we expect to follow are:
+In conclusion, we are trying to define a research path that brings us in a complete integration between the AC and learning algorithm.
+The main steps that we expect to follow are:
 % research plan
 \begin{itemize}
-    \item 1st year: (4 months remained): concluding experiments with basic building blocks, create a clear test base to compare the standard application with our new approach. Deep Learning models, Multi-agent RL, and GNN ideas might be integrated to reach good solutions.
-    \item 2nd year: learning building blocks -- using the renewed experience -- that currently have problems in expressing with AC (such as the distributed leader election).
-    Defining guidelines in merging these two approaches (from an engineering point of view). Creating a sort of hybrid programming methodology.
-    \item 3rd year: extending learning tasks to the framework level, closing the reality gap, making the deployment in real application efficient. Understanding implications of this new way of programming, inserting learning ideas at the AC model level. 
+    %\item 1st year: (4 months remained): concluding experiments with basic building blocks, create a clear test base to compare the standard application with our new approach. Deep Learning models, Multi-agent RL, and GNN ideas might be integrated to reach good solutions.
+    %\item 2nd year: learning building blocks -- using the renewed experience -- that currently have problems in expressing with AC (such as the distributed leader election).
+    %Defining guidelines in merging these two approaches (from an engineering point of view). Creating a sort of hybrid programming methodology.
+    %\item 3rd year: extending learning tasks to the framework level, closing the reality gap, making the deployment in real application efficient. Understanding implications of this new way of programming, inserting learning ideas at the AC model level. 
+    \item 1st year: Continue exploration to choose a good learning model -- always at design time -- while keeping the gradient as the workbench. 
+    %Deep Learning models, Multi-agent RL, and GNN ideas might be integrated to reach good solutions.
+    \item 2nd year: Extend the work to other blocks of aggregate programming (such as distributed leader election), trying to outperform the current one. Define a workflow to apply what we've learned to other aggregate behaviors not yet implemented.
+    \item 3rd year: Try to bring learning from desing time to runtime, in order to have more robustness against failure. check if with the blocks synthesize via learning you can still achieve the same foundational results of AC "classic".
+
 \end{itemize}
 \section*{Acknowledgement}
 %% improve
-Special thanks to my PhD Supervisor Viroli Mirko.
+My PhD is supervised by Prof. Viroli Mirko
 \bibliographystyle{ieeetr}
 \bibliography{mybibfile}
 \end{document}
