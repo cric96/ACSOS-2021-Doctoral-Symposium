@@ -93,7 +93,7 @@ As far as we know, AC (and Field Coordination) has never been integrated with ML
 %
 Therefore our intuition is to set up our work towards this integration.
 %
-This combination adds online adaptability to a composable, self-explanatory language and makes aggregate programs more robust to environmental changes.
+As contribution, this combination adds online adaptability to a composable, self-explanatory language and makes aggregate programs more robust to environmental changes.
 %
 This intuition has inevitably led to the following questions that guided us in the preliminary research phases: 
 at what level of abstraction (middleware? Application API? Building blocks?) learning can be useful for AC?
@@ -126,15 +126,15 @@ The criteria used to evaluate a solution are:
     \item Robustness in network topologies: is the solution robust against network changes (failure, node movement)?
 \end{itemize}
 
-Currently, we have applied ML at the building block level.
+Currently, we have applied ML at the building blocks level.
 The reasons are:
 \begin{enumerate*}[label=(\roman*)]
-\item they impact on the robustness/adaptivity of applications,
-\item it is easy to know/simulate the desired state of the system, and 
-\item there is currently no robust implementation for some of them against structural changes in the network.
+\item building blocks impact on the robustness/adaptivity of applications,
+\item it is easy to know/simulate the desired state of the system, and
+\item there is no robust implementation for some of them overcoming the problem of structural changes in the network.
 \end{enumerate*}
 %
-At this level, the collective behaviour is homogeneous and collaborative --- namely, all agents execute the same program to achieve a common goal.
+At this level, the collective behaviour is homogeneous and collaborative and so, all agents execute the same program to achieve a common goal.
 %
 For this reason, we can frame the learning model as a Homogeneous Team Learning~\cite{DBLP:journals/aamas/PanaitL05}, i.e., it is possible to learn a good strategy centrally (with a single agent) and then distribute it evenly across the aggregate.
 %
@@ -146,13 +146,13 @@ It is a pattern used to establish relevant collective behaviours (cf. distribute
 %
 Naive gradient implementations suffer from slow-rising, so different handcrafted solutions have been built, such as Flex, BIS, and ULT~\cite{DBLP:conf/saso/AudritoCDV17}.
 %
-Our goal is to reach a similar (or even better) performance of the best handmade solution (the ULT gradient).
+Our goal is to reach a similar, or even better, performance of the best handmade solution (the ULT gradient).
 
 At the moment of writing, none of the following novel methods brings us to good results. They are investigations that will hopefully yield results in the future and currently led us to understand limitations and opportunities.
 
 From related works~\cite{DAngelo2019}, we observe a current trend in applying standard RL algorithms in CAS -- In particular, in CSAS.
 %
-As a first attempt, we try to encode our gradient problem as an RL problem and then use Q-Learning~\cite{DBLP:journals/ras/Krose95}, (or even Monte Carlo Learning~\cite{DBLP:conf/nips/Thrun99}) to solve it.
+As a first attempt, we tried to encode our gradient problem as an RL problem and then use Q-Learning~\cite{DBLP:journals/ras/Krose95}, (or Monte Carlo Learning~\cite{DBLP:conf/nips/Thrun99}) to solve it.
 %
 These experiments have shed light on some difficulties, which are: encoding local state indicating the values of the neighbours, finding a proper reward function expressing the individual utility in terms of the collective outcome and, encode right actions. 
 
@@ -175,15 +175,15 @@ In the literature, these problems are referred to as \emph{node embedding}.
 %
 Novel works use Graph Neural Network (GNN)~\cite{DBLP:journals/tnn/ScarselliGTHM09} to learn the proper embedding.
 %
-Even if the configuration is quite different from our model, we can take inspiration there to possibly improve our learning model as done in~\cite{DBLP:conf/nips/SukhbaatarSF16}.
+Even if the configuration is quite different from our model, we can draw inspiration from them to possibly improve our learning model as done in~\cite{DBLP:conf/nips/SukhbaatarSF16}.
 
 Deep RL has gained interest in recent years, thanks to the famous work of Atari games~\cite{DBLP:journals/corr/HosuR16}. 
 %
-Recent works~\cite{DBLP:journals/aamas/Hernandez-LealK19} exploring the application of deep neural networks model in Multi-Agents context to solve well-known problems (non-stationary, partial observability, large state space, etc.). 
+Recent works~\cite{DBLP:journals/aamas/Hernandez-LealK19} investigate the application of deep neural networks model in Multi-Agents context to solve well-known problems (non-stationary, partially observability, large state space, etc.). 
 %
-At present, we do not use these techniques because of the simple nature of the building blocks. However, if we want to apply learning processes with more advanced building blocks (cf. leader election ), these techniques might be necessary.
+At present, we do not use these techniques because of the simple nature of the building blocks. However, if we want to apply learning processes with more advanced building blocks (cf. leader election), these techniques might be necessary.
 
-Beyond building blocks learning, AC needs a platform on which to execute programs. 
+Beyond building blocks learning, AC needs a platform upon which execute programs. 
 %
 Here, designers need to define aspects that the paradigm does not include, such as evaluation frequency, program displacement, and trust.
 % 
@@ -195,13 +195,13 @@ These themes are partially tackled in different works~\cite{DBLP:journals/scp/Ca
 %
 In conclusion, a possible PhD research path that accomplishes our goal (AC and ML integration) is:
 \begin{itemize}
-    \item 1st year: Continue the investigation to choose a good ML model -- always at design time -- while maintaining the gradient as a workbench.
-    \item 2nd year: Extend the work to other blocks of aggregate programming (e.g. distributed leader election ) and try to outperform the current one. Define a workflow to apply what we have learned to other aggregate behaviours not yet implemented.
-    \item 3rd year: Try to bring ML from design time to runtime to have more robustness to environmental changes. Check if we still prove the same theoretical results (e.g. eventual consistency) of AC "classic" with the blocks synthesised by learning.
+    \item 1st year: continue the investigation to choose a good ML model -- always at design time -- while maintaining the gradient as a workbench.
+    \item 2nd year: extend the work to other blocks of aggregate programming (e.g. distributed leader election) and try to outperform the current one. Define a workflow to apply what we have learned to other aggregate behaviours not yet implemented.
+    \item 3rd year: try to bring ML from design time to runtime to gain robustness against environmental changes. Check if we still prove the same theoretical results (e.g. eventual consistency) of "classic" AC with the blocks synthesised by learning.
 \end{itemize}
 \section*{Acknowledgement}
 %% improve
-My PhD is supervised by Prof. Viroli Mirko
+Special thanks to my PhD supervisor Prof. Mirko Viroli-
 \bibliographystyle{ieeetr}
 \bibliography{mybibfile}
 \end{document}
