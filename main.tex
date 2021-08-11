@@ -32,7 +32,7 @@ gianluca.aguzzi@unibo.it}
 %
     Among the many declarative approaches, Aggregate Computing is a novel technique by which developers can express collective system behaviours from a global perspective, using a compositional and functional programming technique.
 %
-    Over the years, Aggregate Computing has been applied in different scenarios, ranging from smart cities to a crowd of augmented people. 
+    Over the years, Aggregate Computing has been applied in different scenarios, ranging from smart cities to crowd of augmented people. 
 %
     Despite its promising capabilities, it is sometimes challenging to describe aggregate behaviours, so we aim at merging Aggregate Computing with black-box techniques to simplify the aggregate program synthesis.
 \end{abstract}
@@ -47,7 +47,7 @@ Humans, in the last century, have filled the Earth with computational entities.
 %
 Nowadays, these devices are not isolated; rather, they form a hoard of inter-communicating entities capable of achieving collective tasks.
 % 
-These systems exhibit properties usually observed in complex ones, such as large scale, decentralised control, and the global behaviour emerging from local interactions~\cite{DBLP:conf/huc/Ferscha15}.
+TThese systems exhibit characteristics normally seen in complex systems, such as large-scale, decentralised control and the emergence of global behaviour from local interactions~\cite{DBLP:conf/huc/Ferscha15}.
 % 
 Swarm of UAVs, a crowd of people, and smart cities are all instances of this kind of system, usually called Collective Adaptive Systems (CASs).
 
@@ -67,7 +67,7 @@ Practically though, building these blocks is not straightforward as it sounds.
 %
 Moreover, it is challenging to guarantee certain quality levels under different network conditions (e.g., different topologies, high node mobility, etc.)
 
-Outward of top-down and declarative approaches, in the context of Collective Self-Adaptive System (CSAS)~\cite{DBLP:conf/metacognition/Mitchell05} (i.e. CAS where agents might have learning capabilities), other solutions leverage Evolutionary Computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and Machine Learning(ML) to design multi-agents programs. 
+Outward of top-down and declarative approaches, in the context of Collective Self-Adaptive System (CSAS)~\cite{DBLP:conf/metacognition/Mitchell05} (i.e. CAS where agents might have learning capabilities), other solutions leverage Evolutionary Computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and Machine Learning (ML) to design multi-agents programs. 
 %
 In ML applications, Reinforcement Learning (RL)~\cite{DBLP:journals/access/NaeemRC20} and Multi-Agent RL~\cite{DBLP:journals/tcyb/NguyenNN20}) are usually used.
 %
@@ -76,7 +76,7 @@ Exploiting these techniques leads to near-optimal solutions for specific and com
 Unfortunately, though, there are many problems to overcome with those solutions, for instance,
 \begin{enumerate*}[label=(\roman*)]
     \item the transferability of the synthesised behaviours in other environments, 
-    \item still a handcrafted process heavily influenced by the domain expertise, and
+    \item it is still a handcrafted process heavily influenced by the domain expertise, and
     \item their black-box nature.
 \end{enumerate*}
 
@@ -103,13 +103,14 @@ In state-of-the-art related techniques, how can they handle these non-determinis
 What are the common properties that AC has w.r.t other solutions?
 \section{Methodology and preliminary results}
 %
-As the first step, we consider related work in Multi-Agent Systems, Collective Self-Adaptive Systems, and Swarm Robotics because they have similar settings to our model.
+As the first step, we consider related work in Multi-Agent Systems, CSAS, and Swarm Robotics because they have similar settings to our model.
 To reach our objective, we iteratively 
 \begin{enumerate*}[label=(\roman*)]
 \item read works at the state-of-the-art,
-\item take inspiration from one of them and craft an initial prototype, and then
+\item take inspiration from one of them to craft an initial prototype, and then
 \item try to generalise the solution to solve more complex (in terms of Glass' law~\cite{DBLP:journals/software/Glass01}) problems.
 \end{enumerate*}
+
 AC is currently supported by different toolkits as ScaFi~\cite{DBLP:conf/ecoop/CasadeiV16} and Protelis~\cite{DBLP:conf/sac/PianiniVB15}, giving us fast prototype capabilities.
 %
 In our workflow, we evaluate our results leveraging simulations because of the cost of setting up a large scale system.
@@ -119,17 +120,17 @@ In the AC literature, the Alchemist~\cite{alchemist-jos2013} simulator is often 
 Initially, we tried to improve our state-of-the-art handcrafted algorithms by evaluating them against our ML synthesised solution.
 %
 The criteria used to evaluate a solution are:
-\begin{enumerate*}[label=(\roman*)]
+\begin{itemize}
     \item Correctness: does the solution reach, at some point in time, the right value?
     \item Stabilisation time: how much time need the solution to reach a stable state?
     \item Robustness in network topologies: is the solution robust against network changes (failure, node movement)?
-\end{enumerate*}
+\end{itemize}
 
 Currently, we have applied ML at the building block level.
 The reasons are:
 \begin{enumerate*}[label=(\roman*)]
-\item they impact on the robustness/adaptivity of applications.
-\item it is easy to know/simulate the desired state of the system 
+\item they impact on the robustness/adaptivity of applications,
+\item it is easy to know/simulate the desired state of the system, and 
 \item there is currently no robust implementation for some of them against structural changes in the network.
 \end{enumerate*}
 %
@@ -141,7 +142,7 @@ To simplify the problem, we also decided to apply ML at design time (offline, be
 
 Our test application is the distance gradient from a source zone. %% TODO improve here.
 %
-It is an idiomatic pattern used to establish various collective behaviours ranging from distributed sensing to information dissemination.
+It is a pattern used to establish relevant collective behaviours (cf. distributed sensing).
 %
 Naive gradient implementations suffer from slow-rising, so different handcrafted solutions have been built, such as Flex, BIS, and ULT~\cite{DBLP:conf/saso/AudritoCDV17}.
 %
@@ -153,15 +154,15 @@ From related works~\cite{DAngelo2019}, we observe a current trend in applying st
 %
 As a first attempt, we try to encode our gradient problem as an RL problem and then use Q-Learning~\cite{DBLP:journals/ras/Krose95}, (or even Monte Carlo Learning~\cite{DBLP:conf/nips/Thrun99}) to solve it.
 %
-These experiments have shed light on some difficulties, which are: encoding local state indicating the values of the neighbours (the problem of finding a good representation), finding a proper reward function expressing the individual utility in terms of the collective outcome, encode right actions, highly non-stationary behaviour. 
-%
+These experiments have shed light on some difficulties, which are: encoding local state indicating the values of the neighbours, finding a proper reward function expressing the individual utility in terms of the collective outcome and, encode right actions. 
+
 Then we also considered setting up learning as a regression problem so that we can use Supervised Learning.
 % 
 Although it is a promising idea, this method does not currently scale to complex problems.
 %
 Even with a global system observation, it is tedious to know the correct outcome at a given time, so we cannot specify the ground truth for our learning algorithms.
 %
-Finally, observing evolutionary robotics and avoiding loss function definition, we try some basic evolutionary algorithms, such as NEAT~\cite{DBLP:journals/ec/StanleyM02}.
+Finally, observing evolutionary robotics, we try some basic evolutionary algorithms, such as NEAT~\cite{DBLP:journals/ec/StanleyM02}.
 %
 The advantages are the limited constraints that are imposed. Indeed, the encoding is straightforward, and the fitness function is easier to define than the reward function.
 %
@@ -176,9 +177,9 @@ Novel works use Graph Neural Network (GNN)~\cite{DBLP:journals/tnn/ScarselliGTHM
 %
 Even if the configuration is quite different from our model, we can take inspiration there to possibly improve our learning model as done in~\cite{DBLP:conf/nips/SukhbaatarSF16}.
 
-Deep RL, thanks to the famous work of Atari games~\cite{DBLP:journals/corr/HosuR16}, has gained interest in the last few years. 
+Deep RL has gained interest in recent years, thanks to the famous work of Atari games~\cite{DBLP:journals/corr/HosuR16}. 
 %
-Novel works~\cite{DBLP:journals/aamas/Hernandez-LealK19} investigate the application of deep neural networks model in Multi-Agents context to solve well-known problems (non-stationary, partially observability, large state space, etc.). 
+Recent works~\cite{DBLP:journals/aamas/Hernandez-LealK19} exploring the application of deep neural networks model in Multi-Agents context to solve well-known problems (non-stationary, partial observability, large state space, etc.). 
 %
 At present, we do not use these techniques because of the simple nature of the building blocks. However, if we want to apply learning processes with more advanced building blocks (cf. leader election ), these techniques might be necessary.
 
@@ -188,8 +189,11 @@ Here, designers need to define aspects that the paradigm does not include, such 
 % 
 These themes are partially tackled in different works~\cite{DBLP:journals/scp/CasadeiAV18, DBLP:journals/fi/CasadeiPPVW20, DBLP:journals/corr/abs-2012-13806}, but online learning is usually not considered since it would improve the system robustness.
 
-In conclusion, we try to define a research path that will bring us into a full integration between the AC and ML algorithms.
-The main steps we expect are:
+%In conclusion, we try to define my PhD research path to accomplish our goal (AC and ML integration).
+%
+%The main steps are:
+%
+In conclusion, a possible PhD research path that accomplishes our goal (AC and ML integration) is:
 \begin{itemize}
     \item 1st year: Continue the investigation to choose a good ML model -- always at design time -- while maintaining the gradient as a workbench.
     \item 2nd year: Extend the work to other blocks of aggregate programming (e.g. distributed leader election ) and try to outperform the current one. Define a workflow to apply what we have learned to other aggregate behaviours not yet implemented.
