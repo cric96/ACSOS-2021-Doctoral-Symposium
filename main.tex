@@ -30,10 +30,10 @@ gianluca.aguzzi@unibo.it}
 %
 %    Different techniques aim at taming these systems, either using declarative or black-box approaches (e.g. Machine Learning, Evolutionary Algorithms, etc.).
 %    Different approaches aim at taming these systems using either macro-programming or micro-programming or machine learning-based techniques.
-    Different approaches aim at taming these systems either by specifying the behavior programmatically or by using machine learning techniques
+    Different approaches aim at taming these systems either by specifying the behaviour programmatically or by using machine learning techniques
 %
 %    Among the many declarative approaches, Aggregate Computing is a novel technique by which developers can express collective system behaviours from a global perspective, using a compositional and functional programming technique.
-    Aggregate programming is part of the first group, and is a novel technique by which developers can express collective system behaviours from a global perspective, using a compositional and functional programming technique.
+    Aggregate programming is part of the first group and is a novel technique by which developers can express collective system behaviours from a global perspective, using a compositional and functional programming technique.
 %
     Over the years, Aggregate Computing has been applied in different scenarios, ranging from smart cities to crowd of augmented people. 
 %
@@ -62,13 +62,19 @@ AC represents a novel approach in which developers can express the collective be
 
 AC is backed by field calculus, a minimal set of constructs necessary to express whatever spatiotemporal computation through the manipulation of computational fields~\cite{DBLP:conf/coordination/AudritoBDV18}. 
 %
+Using the framework described in~\cite{DAngelo2019} AC can be expressed in terms 
+\begin{enumerate*}[label=(\roman*)]
+    \item knowledge limited to the neighbourhood  (i.e. even if the program is expressed as a global data structure manipulation, it is broken in single devices with only neighbourhood interaction), 
+    \item restricted autonomy (i.e. agents execute a program shared by another agent), and 
+    \item altruistic behaviour (i.e. they act trying to achieve the correct global state).
+\end{enumerate*}
 
 %
 On top of that, different building blocks have been built to facilitate high-level libraries definition.
 %
 Furthermore, crafting a specific blocks category, it is possible to verify relevant properties such as self-stabilisation~\cite{DBLP:conf/coordination/ViroliD14} and eventual consistency~\cite{DBLP:conf/saso/BealVPD16}.
 %
-Practically though, building these blocks is not straightforward as it may appear . 
+Practically though, building these blocks is not straightforward as it may appear. 
 %
 Moreover, it is challenging to guarantee certain quality levels under different network conditions (e.g., different topologies, high node mobility, etc.)
 
@@ -81,8 +87,8 @@ Exploiting these techniques leads to near-optimal solutions for specific and com
 Unfortunately, though, there are many problems to overcome with those solutions, for instance,
 \begin{enumerate*}[label=(\roman*)]
     \item the transferability of the synthesised behaviours in other environments, 
-    \item it is still a handcrafted process heavily influenced by the domain expertise, and
-    \item their black-box nature.
+    \item the design process is still handcrafted and heavily influenced by the domain expertise, and
+    \item the model synthesised is usually a black-box.
 \end{enumerate*}
 
 Definitely, the AC model is challenging in terms of common learning problems. Indeed:
@@ -92,7 +98,7 @@ Definitely, the AC model is challenging in terms of common learning problems. In
 \item the system behaviour is usually evaluated at the macro-level and not at the micro-level, and
 \item each node has partial information about the system (in typical Dec-POMDP~\cite{DBLP:conf/uai/BernsteinZI00} settings).
 \end{enumerate*}
-Moreover, the framework described in~\cite{DAngelo2019} allows to classify AC in terms of limited neighbourhood knowledge, restricted autonomy (i.e. agents execute a program shared by another agent), and altruistic behaviour (i.e. they act trying to achieve the correct global state).
+%Moreover, the framework described in~\cite{DAngelo2019} allows to classify AC in terms of limited neighbourhood knowledge, restricted autonomy (i.e. agents execute a program shared by another agent), and altruistic behaviour (i.e. they act trying to achieve the correct global state).
 \section{Contribution and objectives}
 AC (and Field Coordination) has never been integrated with ML capabilities.
 %
@@ -120,7 +126,7 @@ AC is currently supported by different toolkits as ScaFi~\cite{DBLP:conf/ecoop/C
 %
 In our workflow, we evaluate our results leveraging simulations because of the cost of setting up a large scale system.
 %
-In the AC literature, the Alchemist~\cite{alchemist-jos2013} simulator is often chosen thanks to its adaptability of different application kinds, ranging from augmented crowds to smart cities.
+In the Field Coordination literature, the Alchemist~\cite{alchemist-jos2013} simulator is often chosen thanks to its adaptability of different application kinds, ranging from augmented crowds to smart cities.
 
 Initially, we tried to improve our state-of-the-art handcrafted algorithms by evaluating them against our ML synthesised solution.
 %
@@ -139,7 +145,7 @@ The reasons are:
 \item there is no robust implementation for some of them overcoming the problem of structural changes in the network.
 \end{enumerate*}
 %
-At this level, the collective behaviour is homogeneous and collaborative and so, all agents execute the same program to achieve a common goal.
+At this level, the collective behaviour is homogeneous and collaborative so, all agents execute the same program to achieve a common goal.
 %
 For this reason, we can frame the learning model as a Homogeneous Team Learning~\cite{DBLP:journals/aamas/PanaitL05}, i.e., it is possible to learn a good strategy centrally (with a single agent) and then distribute it evenly across the aggregate.
 %
