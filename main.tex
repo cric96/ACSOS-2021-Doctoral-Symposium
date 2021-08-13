@@ -30,14 +30,14 @@ gianluca.aguzzi@unibo.it}
 %
 %    Different techniques aim at taming these systems, either using declarative or black-box approaches (e.g. Machine Learning, Evolutionary Algorithms, etc.).
 %    Different approaches aim at taming these systems using either macro-programming or micro-programming or machine learning-based techniques.
-    Different approaches aim at taming these systems either by specifying the behaviour programmatically or by using machine learning techniques
+    Different approaches aim at taming these systems either by specifying the behaviour programmatically or by using Machine Learning techniques.
 %
 %    Among the many declarative approaches, Aggregate Computing is a novel technique by which developers can express collective system behaviours from a global perspective, using a compositional and functional programming technique.
-    Aggregate programming is part of the first group and is a novel technique by which developers can express collective system behaviours from a global perspective, using a compositional and functional programming technique.
+    Aggregate programming is part of the first group and is a novel technique by which developers can express collective system behaviours from a global perspective, using a compositional and functional programming approach.
 %
     Over the years, Aggregate Computing has been applied in different scenarios, ranging from smart cities to crowd of augmented people. 
 %
-    Despite its promising capabilities, it is sometimes challenging to describe aggregate behaviours, so we aim at merging Aggregate Computing with machine learning techniques to simplify the aggregate program synthesis.
+    Despite its promising capabilities, it is sometimes challenging to describe aggregate behaviours, so we aim at merging Aggregate Computing with Machine Learning techniques to simplify the aggregate program synthesis.
 \end{abstract}
 \begin{IEEEkeywords}
 Field Coordination, Aggregate Computing, Machine Learning, Multi-Agent Reinforcement Learning
@@ -64,11 +64,10 @@ AC is backed by field calculus, a minimal set of constructs necessary to express
 %
 Using the framework described in~\cite{DAngelo2019} AC can be expressed in terms of 
 \begin{enumerate*}[label=(\roman*)]
-    \item knowledge limited to the neighbourhood  (i.e. even if the program is expressed as a global data structure manipulation, it is broken in single devices each having only neighbourhood interaction), 
+    \item knowledge limited to the neighbourhood (i.e. even if the program is expressed as a global data structure manipulation, it is broken in single devices each having only neighbourhood interactions), 
     \item restricted autonomy (i.e. agents execute a program shared by another agent), and 
     \item altruistic behaviour (i.e. they act trying to achieve a desired global state).
 \end{enumerate*}
-
 %
 On top of that, different building blocks have been built to facilitate high-level libraries definition.
 %
@@ -76,7 +75,7 @@ Furthermore, crafting a specific blocks category, it is possible to verify relev
 %
 Practically though, building these blocks is not straightforward as it may appear. 
 %
-In particular, one of the basic building blocks is the gradient of distances from a source, i.e. it computes a computational field in which each device outputs the distance to a given node (only having access to the neighbourhood).
+In particular, one of the basic building blocks is the gradient of distances from a source, i.e. it computes a computational field in which each device outputs the distance to a given node.
 %
 To achieve this result, in a simple implementation, each node iteratively: takes the value of the gradient from its neighbourhood, sums it with the distance to it, takes the minimum and returns it.
 %
@@ -90,13 +89,13 @@ Slow rising refers, for instance, to the difficulty of the system to reach a sta
 %
 Sensitivity to node mobility happens when nodes move chaotically and then the gradients does not reach a stable configuration.
 %
-Due these problems, applications built upon this building block, tend to became instable.
+Due these problems, applications built upon this building block, tend to became unstable.
 %
 Although several solutions have been developed, such as Flex, BIS, and ULT~\cite{DBLP:conf/saso/AudritoCDV17}, none of them is fully resolutive.
 
 Outward of top-down approaches, in the context of Collective Self-Adaptive System (CSAS)~\cite{DBLP:conf/metacognition/Mitchell05} (i.e. CAS where agents might have learning capabilities), other solutions leverage Evolutionary Computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and Machine Learning (ML) to design multi-agents programs. 
 %
-In ML applications, Reinforcement Learning (RL)~\cite{DBLP:journals/access/NaeemRC20} and Multi-Agent RL~\cite{DBLP:journals/tcyb/NguyenNN20}) are typically  used.
+In ML applications, Reinforcement Learning (RL)~\cite{DBLP:journals/access/NaeemRC20} and Multi-Agent RL~\cite{DBLP:journals/tcyb/NguyenNN20}) are typically used.
 %
 Exploiting these techniques leads to near-optimal solutions for specific and complex applications such as multiplayer games~\cite{DBLP:journals/nature/VinyalsBCMDCCPE19, DBLP:journals/taas/HaoLM15}, traffic control~\cite{DBLP:journals/aes/JinMK17, DBLP:conf/icac/SteinTRH16} and robotics~\cite{DBLP:journals/taas/KraemerB14}.
 %
@@ -172,11 +171,11 @@ Our test application is the gradient building block. %% TODO improve here.
 %
 %Naive gradient implementations suffer from slow-rising, so different handcrafted solutions have been built, such as Flex, BIS, and ULT~\cite{DBLP:conf/saso/AudritoCDV17}.
 %
-Our goal is to reach a better performance of the best handmade solution (the ULT gradient).
+Our goal is to reach better performance then the best handmade solution (the ULT gradient).
 
 At the moment of writing, none of the following novel methods brings us to good results. They are investigations that will hopefully yield results in the future and currently led us to understand limitations and opportunities.
 
-From related works~\cite{DAngelo2019}, we observe a current trend in applying standard RL algorithms in CAS -- In particular, in CSAS.
+From related works~\cite{DAngelo2019}, we observe a current trend in applying standard RL algorithms in CSAS.
 %
 As a first attempt, we tried to encode our gradient problem as an RL problem and then use Q-Learning~\cite{DBLP:journals/ras/Krose95}, (or Monte Carlo Learning~\cite{DBLP:conf/nips/Thrun99}) to solve it.
 %In this setting, the admissible actions of nodes were \emph{increment value} and \emph{no action}. 
@@ -188,7 +187,7 @@ We also considered setting up learning as a regression problem so that we can us
 %
 Here, one function (in the simplest case, the minimum) processed the neighbourhood values by extracting a fixed-size feature, while another (a neural network) produced the gradient block result.
 %
-Then, for each time step, the ML model was compared with a loss function (MSE) against a ground-truth, i.e. a gradient simulated with full environmental observability.
+Then, for each time step, the ML model was compared with a loss function against a ground-truth, i.e. a gradient simulated with full environmental observability.
 %
 %Although it is a promising idea, this method does not currently scale to complex problems.
 %
@@ -232,7 +231,7 @@ In conclusion, a possible PhD research path that accomplishes our goal (AC and M
 \begin{itemize}
     \item 1st year: continue the investigation to choose a good ML model -- always at design time -- while maintaining the gradient as a workbench.
     \item 2nd year: extend the work to other blocks of aggregate programming (e.g. distributed leader election) and try to outperform the current one. Define a workflow to apply what we have learned to other aggregate behaviours not yet implemented.
-    \item 3rd year: try to bring ML from design time to runtime to gain robustness against environmental changes. Check if we still prove the same theoretical results (e.g. eventual consistency) of "classic" AC with the blocks synthesised by learning.
+    \item 3rd year: try to bring ML from design time to runtime to gain robustness against environmental changes. Check if we still prove the same theoretical results (e.g. eventual consistency) of ``classic'' AC with the blocks synthesised by learning.
 \end{itemize}
 \section*{Acknowledgement}
 %% improve
