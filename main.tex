@@ -13,7 +13,7 @@
 
 \title{Research directions for Aggregate Computing with Machine Learning}
 
-\author{\IEEEauthorblockN{PhD Student Gianluca Aguzzi}
+\author{\IEEEauthorblockN{Gianluca Aguzzi}
 \IEEEauthorblockA{\textit{Alma Mater Studiorum - Università di Bologna} \\
 Cesena, Italy \\
 gianluca.aguzzi@unibo.it}
@@ -26,15 +26,18 @@ gianluca.aguzzi@unibo.it}
 
 \maketitle
 \begin{abstract}
-    Collective adaptive systems (CASs) are challenging from the engineering perspective. 
+    Collective adaptive systems are challenging from the engineering perspective. 
 %
-    Different techniques aim at taming these systems, either using declarative or black-box approaches (e.g. Machine Learning, Evolutionary Algorithms, etc.).
+%    Different techniques aim at taming these systems, either using declarative or black-box approaches (e.g. Machine Learning, Evolutionary Algorithms, etc.).
+%    Different approaches aim at taming these systems using either macro-programming or micro-programming or machine learning-based techniques.
+    Different approaches aim at taming these systems either by specifying the behavior programmatically or by using machine learning techniques
 %
-    Among the many declarative approaches, Aggregate Computing is a novel technique by which developers can express collective system behaviours from a global perspective, using a compositional and functional programming technique.
+%    Among the many declarative approaches, Aggregate Computing is a novel technique by which developers can express collective system behaviours from a global perspective, using a compositional and functional programming technique.
+    Aggregate programming is part of the first group, and is a novel technique by which developers can express collective system behaviours from a global perspective, using a compositional and functional programming technique.
 %
     Over the years, Aggregate Computing has been applied in different scenarios, ranging from smart cities to crowd of augmented people. 
 %
-    Despite its promising capabilities, it is sometimes challenging to describe aggregate behaviours, so we aim at merging Aggregate Computing with black-box techniques to simplify the aggregate program synthesis.
+    Despite its promising capabilities, it is sometimes challenging to describe aggregate behaviours, so we aim at merging Aggregate Computing with machine learning techniques to simplify the aggregate program synthesis.
 \end{abstract}
 \begin{IEEEkeywords}
 Field Coordination, Aggregate Computing, Machine Learning, Multi-Agent Reinforcement Learning
@@ -47,17 +50,19 @@ Humans, in the last century, have filled the Earth with computational entities.
 %
 Nowadays, these devices are not isolated; rather, they form a hoard of inter-communicating entities capable of achieving collective tasks.
 % 
-TThese systems exhibit characteristics normally seen in complex systems, such as large-scale, decentralised control and the emergence of global behaviour from local interactions~\cite{DBLP:conf/huc/Ferscha15}.
+These systems exhibit characteristics normally seen in complex systems, such as large-scale, decentralised control and the emergence of global behaviour from local interactions~\cite{DBLP:conf/huc/Ferscha15}.
 % 
-Swarm of UAVs, a crowd of people, and smart cities are all instances of this kind of system, usually called Collective Adaptive Systems (CASs).
+Swarm of UAVs, sensor networks, a crowd of people, and smart cities are all instances of this kind of system, usually called Collective Adaptive Systems (CASs).
 
-In literature, different techniques aim at managing this complexity at the engineering level.
+In literature, different techniques aim at engineering this complexity.
 %
-Among the many, a solution that uses a top-down approach in expressing global behaviours is Aggregate Computing (AC)~\cite{DBLP:journals/computer/BealPV15}, classified under the umbrella of Field-Based Coordination~\cite{DBLP:books/daglib/0015276}).
+Among the many, a solution that uses a top-down approach in expressing global behaviours is Aggregate Computing (AC)~\cite{DBLP:journals/computer/BealPV15}, classified under the umbrella of Field-Based Coordination~\cite{DBLP:books/daglib/0015276}.
 %
-AC represents a novel approach in which developers can express the collective behaviour declaratively by a functional manipulation of a distributed data structure called \emph{computational field}.
+AC represents a novel approach in which developers can express the collective behaviour declaratively by a functional manipulation of a distributed data structure called \emph{computational field} that maps the result of computation for each device in time.
 
 AC is backed by field calculus, a minimal set of constructs necessary to express whatever spatiotemporal computation through the manipulation of computational fields~\cite{DBLP:conf/coordination/AudritoBDV18}. 
+%
+
 %
 On top of that, different building blocks have been built to facilitate high-level libraries definition.
 %
@@ -67,7 +72,7 @@ Practically though, building these blocks is not straightforward as it may appea
 %
 Moreover, it is challenging to guarantee certain quality levels under different network conditions (e.g., different topologies, high node mobility, etc.)
 
-Outward of top-down and declarative approaches, in the context of Collective Self-Adaptive System (CSAS)~\cite{DBLP:conf/metacognition/Mitchell05} (i.e. CAS where agents might have learning capabilities), other solutions leverage Evolutionary Computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and Machine Learning (ML) to design multi-agents programs. 
+Outward of top-down approaches, in the context of Collective Self-Adaptive System (CSAS)~\cite{DBLP:conf/metacognition/Mitchell05} (i.e. CAS where agents might have learning capabilities), other solutions leverage Evolutionary Computing~\cite{DBLP:journals/swarm/BrambillaFBD13} and Machine Learning (ML) to design multi-agents programs. 
 %
 In ML applications, Reinforcement Learning (RL)~\cite{DBLP:journals/access/NaeemRC20} and Multi-Agent RL~\cite{DBLP:journals/tcyb/NguyenNN20}) are typically  used.
 %
